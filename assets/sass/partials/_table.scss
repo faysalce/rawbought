@@ -1,0 +1,18 @@
+.table-valign-middle {
+	td {
+		vertical-align: middle;
+	}
+}
+.table-cart {
+    td {
+        border-top-color: $border-color-light;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .cart-quantity-default {
+		border-color: $border-color-light;
+    }
+    .order-actions {
+    	line-height: 1;
+    }
+}

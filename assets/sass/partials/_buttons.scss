@@ -1,0 +1,294 @@
+
+/* BUTTON */
+
+.btn {
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+    text-decoration: none;
+    box-shadow: none !important;
+  }
+}
+
+.btn-site {
+  font-size: ($fs-base * .875);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .063rem; 
+  padding: 0.594rem 1.188rem;
+  border-radius: 0;
+}
+.btn-lg {
+  padding: .813rem 2rem;
+}
+.he-rotate {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  &:after {
+    content: "";
+      position: absolute;
+      z-index: -1;
+      transition: width .3s,opacity .3s;
+      width: 0;
+      height: 530px;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      background-color: rgba($black, 0.17);
+      transform: translate(-50%,-50%) rotate(45deg);
+      transform: translate3d(-50%,-50%,0) rotate(45deg);
+      backface-visibility: hidden;
+  }
+  &:hover {
+    &:after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
+
+.btn-arrow-right {
+  position: relative;
+  display: inline-flex;
+    align-items: center;
+  i {
+    margin-left: .875rem;
+    line-height: 1;
+
+    &:before {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+  }
+  &:hover {
+    i {
+      animation: animate-arrow-right .4s cubic-bezier(.77, 0, .175, 1)
+    }
+  }
+}
+
+.btn-small {
+  font-size: $fs-base - 125rem;
+  padding: 3px 12px;
+}
+.btn-link {
+  color: $primary;
+  &:hover, &:focus {
+    color: lighten($primary, 15%);
+  }
+}
+
+.btn-primary {
+	@include base-button-variant($white, $color-primary, $color-primary);
+}
+.btn-primary:hover {
+  background-color: lighten($primary, 15%) !important;
+  border-color: lighten($primary, 15%) !important;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  background-color: lighten($primary, 15%) !important;
+  border-color: lighten($primary, 15%) !important;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: lighten($primary, 25%) !important;
+  border-color: lighten($primary, 25%) !important;
+}
+
+.btn-white {
+  @include base-button-variant(#333, $white, $white);
+}
+.btn-default {
+  @include base-button-variant($color-text, $white, $light);
+}
+.btn-light {
+  @include base-button-variant($color-text, $btn-light, $btn-light);
+}
+
+.btn-thc1 { @include base-button-variant($white, $thc1, $thc1); }
+.btn-thc2 { @include base-button-variant($color-text, $thc2, $thc2); }
+.btn-thc3 { @include base-button-variant($white, $thc3, $thc3); }
+.btn-thc4 { @include base-button-variant($color-text, $thc4, $thc4); }
+.btn-thc5 { @include base-button-variant($color-text, $thc5, $thc5); }
+
+
+.btn-white {
+  &:hover, &:focus, &:active, &.active {
+    background-color: $dark;
+    color: $white;
+  }
+  &.he-rotate {
+    &:hover {
+      &:after {
+        background-color: rgba($dark, 1);
+      }
+      color: $white;
+    }
+    &:focus {
+      background-color: $dark;
+      color: $white !important;
+    }
+  }
+}
+
+.btn-outline-primary {
+  @include base-button-outline-variant($color-primary, $color-primary, $color-primary);
+  &:hover, &:focus {
+    color: $white;
+  }
+}
+
+.btn-facebook {
+  @include base-button-variant($white, $brand-facebook, $brand-facebook);
+}
+.btn-google {
+  @include base-button-variant($white, $brand-google, $brand-google);
+}
+.btn-twitter {
+  @include base-button-variant($white, $brand-twitter, $brand-twitter);
+}
+.btn-linkedin {
+  @include base-button-variant($white, $brand-linkedin, $brand-linkedin);
+}
+
+.on-dark {
+    &.btn-white {
+        color: $white;
+    }
+}
+
+
+@keyframes animate-arrow-right {
+  0% {
+    transform: translate(0) scale(1);
+    transform: translateZ(0) scale(1);
+    opacity: 1
+  }
+  50% {
+    transform: translate(10px) scaleX(1.3);
+    transform: translate3d(10px, 0, 0) scaleX(1.3);
+    opacity: 0
+  }
+  51% {
+    transform: translate(-10px) scaleX(1.3);
+    transform: translate3d(-10px, 0, 0) scaleX(1.3);
+    opacity: 0
+  }
+  to {
+    transform: translate(0) scale(1);
+    transform: translateZ(0) scale(1);
+    opacity: 1
+  }
+}
+
+@keyframes animate-arrow-left {
+  0% {
+    transform: translate(0) scale(1);
+    transform: translateZ(0) scale(1);
+    opacity: 1
+  }
+  50% {
+    transform: translate(-10px) scaleX(2);
+    transform: translate3d(-10px, 0, 0) scaleX(2);
+    opacity: 0
+  }
+  51% {
+    transform: translate(10px) scaleX(2);
+    transform: translate3d(10px, 0, 0) scaleX(2);
+    opacity: 0
+  }
+  to {
+    transform: translate(0) scale(1);
+    transform: translateZ(0) scale(1);
+    opacity: 1
+  }
+}
+
+@keyframes animate-arrow-down {
+  0% {
+    transform: translate(0) scale(1);
+    transform: translateZ(0) scale(1);
+    opacity: 1
+  }
+  50% {
+    transform: translateY(20px) scaleY(2);
+    transform: translate3d(0, 20px, 0) scaleY(2);
+    opacity: 0
+  }
+  51% {
+    transform: translateY(-20px) scaleY(2);
+    transform: translate3d(0, -20px, 0) scaleY(2);
+    opacity: 0
+  }
+  to {
+    transform: translate(0) scale(1);
+    transform: translateZ(0) scale(1);
+    opacity: 1
+  }
+}
+
+@keyframes animate-arrow-appear-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+    transform: translate3d(0, -20%, 0)
+  }
+  to {
+    transform: translate(0);
+    transform: translateZ(0);
+    opacity: 1
+  }
+}
+
+@keyframes animate-arrow-up {
+  0% {
+    transform: translate(0) scale(1);
+    transform: translateZ(0) scale(1);
+    opacity: 1
+  }
+  50% {
+    transform: translateY(-20px) scaleY(2);
+    transform: translate3d(0, -20px, 0) scaleY(2);
+    opacity: 0
+  }
+  51% {
+    transform: translateY(20px) scaleY(2);
+    transform: translate3d(0, 20px, 0) scaleY(2);
+    opacity: 0
+  }
+  to {
+    transform: translate(0) scale(1);
+    transform: translateZ(0) scale(1);
+    opacity: 1
+  }
+}
+
+@keyframes animate-generic {
+  0% {
+    transform: scale(1);
+    opacity: 1
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0
+  }
+  51% {
+    transform: scale(0);
+    opacity: 0
+  }
+  to {
+    transform: scale(1);
+    opacity: 1
+  }
+}

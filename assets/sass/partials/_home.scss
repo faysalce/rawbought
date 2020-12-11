@@ -1,0 +1,130 @@
+.grid-row {
+	display: flex;
+	align-items: stretch;
+	margin-left: -5px;
+	margin-right: -5px;
+	.grid-box {
+		position: relative;
+    	flex: 1;
+    	padding-left: 5px;
+    	padding-right: 5px;
+	}
+}
+.feat-category {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	.category-media {
+		position: relative;
+	}
+	.category-image {
+		position: relative;
+		overflow: hidden;
+		&:before {
+			content: " ";
+			display: block;
+			padding-top: 150%;
+		}
+		img {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: all 0.25s ease;
+		}
+	}
+	.category-content {
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		text-align: center;
+		padding: 1rem;
+	}
+	.category-title {
+		text-transform: uppercase;
+		color: $white;
+		letter-spacing: 0.063rem;
+		margin-bottom: 0;
+		text-shadow: 0 3px 6px rgba($black, 0.5);
+	}
+}
+.grid-column-1 {
+	.feat-category {
+		.category-image {
+			&:before {
+				padding-top: 56.25%;
+			}
+		}
+	}
+}
+.home-about-common-header {
+	.home-about-heading {
+		line-height: 1.4;
+	}
+	.common-text {
+		margin-top: 0;
+	}
+	.home-about-common-text {
+		//margin-top: 1.875rem;
+	}
+}
+.newsletter-img {
+	position: relative;
+	margin-top: 30%;
+	&:before {
+		content: " ";
+		display: block;
+		padding-top: 100%;
+	}
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+.newsletter {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	background-color: $bg-newsletter;
+	padding: 2rem;
+	.newsletter-text {
+		font-size: 1.125rem;
+		margin-bottom: 1.5rem;
+	}
+	.form-control {
+		height: calc(2.25em + 1rem + 2px);
+		border: 2px solid $dark;
+		border-radius: 0;
+		background-color: transparent;
+	}
+	.newsletter-inside {
+		margin-bottom: 2rem;
+	}
+	&.newsletter-dark {
+		.form-control {
+			border-color: $light;
+			@include placeholder {
+				color: $light;
+			}
+		}
+	}
+}

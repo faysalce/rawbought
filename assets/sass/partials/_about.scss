@@ -1,0 +1,98 @@
+/*.page-about {
+	background-color: $bg-about;
+	#main-content {
+		color: $text-light;
+		h1, h2, h3, h4 {
+			color: $white;
+		}		
+	}
+	.footer {
+		background-color: $white;
+		color: $color-text !important;
+		border-top: 1px solid $light;
+		.footer-nav {
+			a {
+				color: $color-text;
+			}
+		}
+		.logo-primary {
+			display: block !important;
+		}
+		&.footer-styled {
+			background-color: $white !important;
+			color: $color-text !important;
+			.footer-nav {
+				a {
+					color: $color-text;
+				}
+			}
+			.logo-light {
+				display: none;
+			}
+			.btn-nttr-submit {
+				color: rgba($dark, .65);
+			}
+		}
+		.footer-newsletter {
+			.form-control {
+				border-bottom-color: rgba($black, .35);
+				color: $color-text;
+				@include placeholder {
+					color: rgba($black, .65);
+				}
+				&:focus {
+					border-bottom-color: rgba($black, .6);
+					@include placeholder {
+						color: rgba($black, 0);
+					}
+				}
+			}
+		}
+	}
+}*/
+.page-about, .page-template-template-about {
+	background-color: $white !important;
+}
+.hero-blank-page {
+	@media (min-width: 992px) {
+		&.hero-default-lg {
+			.hero-heading {
+				font-size: 4rem;
+			}
+		}
+	}
+}
+
+.flexion {
+	+ .flexion {
+		margin-top: 6rem;
+	}
+	.flexion-label {
+		color: $muted;
+		text-transform: uppercase;
+		display: block;
+		margin-bottom: 1rem;
+	}
+	.flexion-title {
+		margin-bottom: 0;
+	}
+	.flexion-text {
+		padding-top: 1.25rem;
+		p {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.flexion-image {
+		img {
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 767.98px) {
+		.flexion-content {
+			padding-top: 1.5rem;
+		}
+	}
+}

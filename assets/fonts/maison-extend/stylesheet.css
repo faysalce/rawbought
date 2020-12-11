@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedMediumItalic.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedMediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedBookItalic.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedBookItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedThin.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedThin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedBook.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedBook.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedThinItalic.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedLightItalic.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedLightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedBlackItalic.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedBlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedDemiBoldIt.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedDemiBoldIt.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedBold.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedBlack.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedExtraBold.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedDemiBold.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedDemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedMedium.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedExtraBoldIt.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedExtraBoldIt.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedLight.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended ExtraThin';
+    src: url('MaisonNeue-ExtendedExtraThin.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedExtraThin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended';
+    src: url('MaisonNeue-ExtendedBoldItalic.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedBoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Maison Neue Extended ExtraThin';
+    src: url('MaisonNeue-ExtendedExtraThinIt.woff2') format('woff2'),
+        url('MaisonNeue-ExtendedExtraThinIt.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
