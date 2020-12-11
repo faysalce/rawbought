@@ -1,0 +1,28 @@
+.hero {
+    position: relative;
+    min-height: 400px;
+    height: calc(83% - #{$navbar-height});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    &:before {
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba($black, .5);
+    }
+    .hero-heading {
+        font-size: 3.5rem;
+    }
+}
+.hero-home {
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-page-sm {
+    padding: 2rem 0;
+}

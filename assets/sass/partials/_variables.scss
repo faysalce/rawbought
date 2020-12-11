@@ -1,0 +1,130 @@
+$white: 						 #ffffff !default;
+$black: 						 #000000 !default;
+$red: 							 red !default;
+$purple-deep: 					 #403A5B !default;
+$purple-thin: 					 #766C86 !default;
+$cyan-deep: 					 #637C8B !default;
+$cyan-thin: 					 #9BBABD !default;
+$golden-deep: 					 #BCB8B0 !default;
+$golden-thin: 					 #DFDBD0 !default;
+
+$color-primary:                  #010101 !default;
+$primary:                  		 #010101 !default;
+$color-secondary:                #FED41A !default;
+$secondary:                		 #FED41A !default;
+$color-success:                  #5cb85c !default;
+$success:                  		 #5cb85c !default;
+$color-info:                     #5bc0de !default;
+$info:                     		 #5bc0de !default;
+$color-warning:                  #f0ad4e !default;
+$color-danger:                   #d9534f !default;
+$danger:                   		 #d9534f !default;
+
+$thc1: 							 #a35434 !default; // BURNT SIENNA
+$thc2: 							 #f7d1ba !default; // SOFT REACH
+$thc3: 							 #557571 !default; // FOREST GREEN
+$thc4: 							 #d49a89 !default; // SUNKISSED TERRACOTTA
+$thc5: 							 #d6ddd8 !default; // SEAFOAM
+
+$bg-thc1: 						 $thc1 !default;
+$bg-thc2: 						 $thc2 !default;
+$bg-thc3: 						 $thc3 !default;
+$bg-thc4: 						 $thc4 !default;
+$bg-thc5: 						 $thc5 !default;
+
+$dark: 							 $primary !default;
+$light-primary: 				 lighten($primary, 10%) !default;
+$light-success: 				 #d8f6df !default;
+$darkgray-modal: 				 #4f4f4f !default;
+$lightgray-modal: 		 		 $darkgray-modal !default;
+$darkgray-text: 				 #636363 !default;
+
+$light: 						 #e9e8e9 !default;
+$btn-light: 					 $light !default;
+
+$completed: 					 $thc3 !default;
+$cancelled: 					 $thc4 !default;
+$refunded: 					     lighten($thc3, 30%) !default;
+
+$color-gray-base:                #37383c;
+$color-gray-light:               lighten($color-gray-base, 10%);
+$color-muted:                    lighten($color-gray-base, 55%);
+$muted: 						 $light !default;
+
+$color-heading:                  $color-primary;
+$color-text:                     $color-primary;
+$color-text-light:               lighten($color-text, 20%);
+$text-light: 					 $light !default;
+
+$color-linked:                   $color-primary;
+$color-linked-hover:             darken($color-linked, 15%);
+$color-price: 					 #636363;
+
+$border-color:                   lighten($color-gray-base, 68%);
+$border-color-light:           	 #f1f1f2;
+$input-border: 					 lighten($dark, 15%);
+$input-border-focus: 			 $dark;
+$bg-light: 						 $light;
+$bg-gray:                        #f1f1f1;
+
+$bg-footer: $color-primary;
+
+$bg-lighten-primary: 			 #f5f5fb;
+$bg-light-success: 				 lighten($success, 30%);
+$bg-light-info: 				 lighten($info, 30%);
+
+
+$modal-backdrop: 				 #f2f1f0;
+$modal-backdrop-quickview: 		 #bbbbbb;
+$bg-dropdown: 					 lighten($golden-thin, 12%);
+$bg-footer: 					 $white;
+
+
+// utilities
+$bg-newsletter: 				$bg-light !default;
+$bg-about: 						#ede8e1 !default;
+
+$color-label: 					lighten($dark, 35%) !default;
+
+
+
+$brand-facebook:                 #3b5998;
+$brand-google:                   #dd4b39;
+$brand-twitter:                  #00aced;
+$brand-youtube:                  #bb0000;
+$brand-linkedin:                 #007bb5;
+$brand-instagram:                #125688;
+$brand-whatsapp:                 #4dc247;
+$brand-pinterest:                #cb2027;
+$brand-flickr:                   #ff0084;
+$brand-tumblr:                   #32506d;
+$brand-vk:                       #45668e;
+
+$ff-maisonneue: 				 'Maison Neue';
+$ff-maisonEx: 				 	 'Maison Neue Extended';
+$ff-base: 						 $ff-maisonneue;
+$ff-accent: 					 $ff-maisonEx;
+$fs-base: 1rem;
+$fw-base: normal;
+
+
+$padding-section: 5rem;
+$block-space: 60px;
+$block-margin: 32px;
+$common-space: 1.875rem; // 30px
+
+$navbar-height: 64px;
+$navbar-height-mobile: 46px;
+
+
+$information-phone:              "only screen and (max-width : 320px)";
+$phone:                          '(max-width: 575px)';
+$extra-small-min:                '(min-width: 576px)';
+$extra-small-max:                '(max-width: 767px)';
+$small-min:                      '(min-width: 768px)';
+$small-max:                      '(max-width: 991px)';
+$small-only:                     '(min-width: 768px) and (max-width: 991px)';
+$medium-min:                     '(min-width: 992px)';
+$medium-max:                     '(max-width: 1199px)';
+$medium-only:                    '(min-width: 992px) and (max-width: 1199px)';
+$large-min:                      '(min-width: 1200px)';

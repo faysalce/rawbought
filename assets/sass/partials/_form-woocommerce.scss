@@ -1,0 +1,117 @@
+.form-items-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -5px;
+	margin-right: -5px;
+	.form-item {
+		position: relative;
+		width: 100%;
+		padding-left: 5px;
+		padding-right: 5px;
+		flex: 0 0 100%;
+		max-width: 100%;
+		.form-row-last {
+			width: 100% !important;
+			float: none !important;
+			overflow: hidden !important;
+		}
+	}
+	abbr[data-original-title], abbr[title] {
+		text-decoration: none;
+	}
+	@media (min-width: 768px) {
+		.billing_first_name, .billing_last_name, 
+		.shipping_first_name, .shipping_last_name, 
+		.shipping_postcode, .shipping_city, .billing_city, .billing_postcode {
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+	}
+}
+.shipping_state, .billing_state {
+	opacity: 0;
+	display: none !important;
+}
+.select2-container .select2-selection--single {
+	height: 42px;
+}
+
+.select2-container--default .select2-selection--single {
+	border: 1px solid $dark;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	height: 40px;
+	width: 30px;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+	padding-left: 1rem;
+	padding-right: 2rem;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height: 42px;
+	color: $color-text;
+}
+.woocommerce-shipping-methods {
+	list-style: none;
+	li {
+		position: relative;
+	    z-index: 1;
+	    display: block;
+	    min-height: 1.5rem;
+	    padding-left: 1.75rem;
+	    -webkit-print-color-adjust: exact;
+	    color-adjust: exact;
+	    margin-bottom: .75rem;
+	    input[type=checkbox], input[type=radio] {
+		    box-sizing: border-box;
+		    padding: 0;
+		    position: absolute;
+		    left: 0;
+		    z-index: -1;
+		    width: 1.25rem;
+		    height: 1.5rem;
+		    opacity: 0;
+		}
+		label {
+			position: relative;
+			margin-bottom: 0;
+			&:before {
+				position: absolute;
+			    top: 0;
+			    left: -1.75rem;
+			    display: block;
+			    width: 1.25rem;
+			    height: 1.25rem;
+			    pointer-events: none;
+			    content: "";
+			    background-color: $white;
+			    border: 1px solid $dark;
+			    border-radius: 50%;
+			    transition: all .3s ease-in-out;
+			}
+			&:after {
+				position: absolute;
+			    top: .25rem;
+			    left: -1.5rem;
+			    display: block;
+			    width: .75rem;
+			    height: .75rem;
+			    content: "";
+			    background-color: $white;
+			    border-radius: 50%;
+			}
+		}
+		input[type=radio] {
+			&:checked {
+				~ label {
+					&:after {
+						color: $white;
+					    background-color: $dark;
+					}
+				}
+			}
+		}
+	}
+}

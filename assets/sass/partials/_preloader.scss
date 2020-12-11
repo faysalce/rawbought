@@ -1,0 +1,65 @@
+/* 05. PRELOADER
+=============================================================== */
+.site-preloader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9000;
+    background-color: rgba($white, 0.9);
+    transition: all .3s linear;
+    .animation-preloader {
+        z-index: 1000;
+        .spinner {
+            animation: spinner 1s infinite linear;
+            border-radius: 50%;
+            border: 2px solid rgba($primary, 0.15);
+            border-top-color: $primary;
+            height: 6rem;
+            width: 6rem;
+            margin: 0 auto 3rem auto;
+        }
+    }
+    .preloader-text {
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+        color: $color-text;
+        margin-left: 0.5rem;
+    }
+    .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+    &.loaded {
+        .animation-preloader {
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+    }
+}
+@keyframes spinner {
+    to {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+
+.is-preloader {
+    transition: all 0.3s ease;
+    #header, #main-content, #footer {
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+}

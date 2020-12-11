@@ -1,0 +1,36 @@
+.contact-rowwrap {
+	.contact-row {
+		+ .contact-row {
+			margin-top: 2rem;
+		}
+		.contact-title {
+			text-transform: uppercase;
+			font-weight: 500;
+			letter-spacing: .063rem;
+		}
+	}
+}
+.contact-lists {
+	@include list-unstyled;
+	li {
+		+ li {
+			margin-top: 1.5rem;
+		}
+	}
+}
+.con-item {
+	line-height: 1.1;
+	.contact-label {
+		font-weight: 500;
+		letter-spacing: .063rem;
+		margin-bottom: .375rem;
+	}
+	strong {
+		font-weight: 500;
+		letter-spacing: .063rem;
+		display: block;
+		+ strong {
+			margin-top: .375rem;
+		}
+	}
+}

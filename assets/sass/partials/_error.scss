@@ -1,0 +1,39 @@
+.error-image {
+	img {
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+}
+.section-error-header {
+	width: 100%;
+	max-width: 750px;
+}
+.section-error-recommended {
+	border-top: 1px solid $dark;
+	padding-top: 2rem;
+	margin-top: $block-space;
+	.group-common-header {
+		margin-bottom: 1.5rem;
+	}
+}
+@media (min-width: 768px) {
+	.error-content {
+		.error-text {
+			font-size: 1.25rem;
+		}
+	}
+}
+@media (max-width: 767.98px) {
+	.error-content {
+		.error-heading {
+			font-size: 1.25rem;
+		}
+	}	
+}
+@media (max-width: 575.98px) {
+	.error-content {
+		padding-top: 2rem;
+		text-align: center;
+	}	
+}
