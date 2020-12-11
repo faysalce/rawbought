@@ -1,0 +1,21 @@
+.box-thanks {
+	width: 100%;
+	max-width: 430px;
+	margin: 0 auto;
+}
+.thanks-icon {
+	svg {
+		width: 60px;
+		margin: 0 auto 1.5rem;
+	}
+}
+.thanks-text {
+	p {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+.thanks-action {
+	padding-top: 1.5rem;
+}

@@ -1,0 +1,132 @@
+/* 05. PRELOADER
+=============================================================== */
+.site-preloader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9000;
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+.site-preloader .animation-preloader {
+  z-index: 1000;
+}
+.site-preloader .animation-preloader .spinner {
+  -webkit-animation: spinner 1s infinite linear;
+          animation: spinner 1s infinite linear;
+  border-radius: 50%;
+  border: 2px solid rgba(1, 1, 1, 0.15);
+  border-top-color: #010101;
+  height: 6rem;
+  width: 6rem;
+  margin: 0 auto 3rem auto;
+}
+
+#spinnerSvg {
+  display: block;
+  width: 80px;
+  height: auto;
+  margin: 0 auto 1rem auto;
+}
+#spinnerSvg path {
+  fill: transparent;
+  stroke: #010101;
+  stroke-width: 10;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 2500px;
+  stroke-dashoffset: 0;
+  animation: line-anim 4s ease forwards infinite;
+}
+.brand-spinner #line-top {
+  
+}
+.brand-spinner #line-bottom {
+  
+}
+.brand-spinner #line-curve {
+
+}
+.brand-spinner #line-top {
+
+}
+/*@keyframes line-anim {
+    to {
+      stroke-dashoffset: 0;
+    }
+}*/
+@keyframes line-anim {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    40% {
+      stroke-dashoffset: 2500px;
+    }
+    80% {
+      stroke-dashoffset: 5000px;
+      fill: transparent;
+    }
+    100% {
+      stroke-dashoffset: 5000px;
+      fill: #010101;
+    }
+}
+
+
+.site-preloader .preloader-text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  color: #010101;
+  margin-left: 0.5rem;
+}
+.site-preloader .loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.site-preloader.loaded .animation-preloader {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes spinner {
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+.is-preloader {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.is-preloader #header, .is-preloader #main-content, .is-preloader #footer {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}

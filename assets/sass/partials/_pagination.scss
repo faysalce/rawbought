@@ -1,0 +1,28 @@
+.nav-pagination {
+	display: flex;
+	width: 100%;
+	.page-item {
+		padding-left: 2.5px;
+		padding-right: 2.5px;
+
+	}
+	.page-link {
+		color: $color-text;
+		border-width: 2px;
+		border-color: transparent;
+		margin: 0;
+		border-radius: 0 !important;
+	}
+	.active {
+		.page-link {
+			border-color: $primary;
+			background-color: $white;
+			color: $primary;
+		}
+	}
+}
+.pagination-border-top {
+	border-top: 1px solid $dark;
+	padding-top: 1rem;
+	margin-top: 1.5rem;
+}
