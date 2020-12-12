@@ -417,12 +417,11 @@ endwhile; // End of the loop.
 
 <script>
     jQuery(document).ready(function($) {
-
-        $('.attr-wrp-pa_colour .item_attribute_pa_colour').on('click', 'label', function () {
-            $(window).scrollTop(0);
-        })
-
-
+        $('.attr-wrp-pa_colour').on('click', '.item_attribute_pa_colour', function () {
+            $('html,body').stop().animate({
+                scrollTop: 0
+            }, 'linear');
+        });
         var selectedColor = $('input[type="radio"][name="attribute_pa_colour"]:checked').val();
         console.log(selectedColor);
         if (selectedColor) {
