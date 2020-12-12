@@ -418,7 +418,9 @@ endwhile; // End of the loop.
 <script>
     jQuery(document).ready(function($) {
 
-
+        $('.attr-wrp-pa_colour .item_attribute_pa_colour').on('click', 'label', function () {
+            $(window).scrollTop(0);
+        })
 
 
         var selectedColor = $('input[type="radio"][name="attribute_pa_colour"]:checked').val();
@@ -519,11 +521,6 @@ endwhile; // End of the loop.
                         init__productImgZoomSlider();
 
                     <?php } ?>
-
-
-
-
-
 
             }
 
