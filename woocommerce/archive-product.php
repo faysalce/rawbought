@@ -106,8 +106,8 @@ $category = get_queried_object();
             );
                        
             $variations = new WP_Query($args);
-            var_dump($variations->request);
-            
+            var_dump($variations);
+
                         $all_products = get_posts($args);
                         if (count($all_products) > 0) {
 
