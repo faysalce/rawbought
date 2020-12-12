@@ -798,7 +798,17 @@ $('.nav-sitemain .dropdown').mouseleave(function (e) {
 
 function init__priceRange() {
 	if ($('#priceRange').length) {
-		$("#priceRange").slider();
+		var priceRange = $("#priceRange").slider();
+		var min = priceRange.data('slider').options.value[0];
+		var max = priceRange.data('slider').options.value[1];
+		var _minvalue = $('.minval-value');
+		var _maxvalue = $('.maxval-value');
+		_minvalue.text(min);
+		_maxvalue.text(max);
+		priceRange.on("slide", function(slideEvtMin) {
+			_minvalue.text(slideEvtMin.value[0]);
+			_maxvalue.text(slideEvtMin.value[1]);
+		});
 	}
 }
 function Rawbought_add_to_cart() {
@@ -996,7 +1006,7 @@ function Rawbought_ajaxQuickview() {
 		// });
 	});
 }
-function init__productImgZoomSlider() {
+/*function init__productImgZoomSlider() {
 	if ($('#productMainSlider').length > 0) {
 		$('#productMainSlider').slick({
 			slidesToShow: 1,
@@ -1019,7 +1029,7 @@ function init__productImgZoomSlider() {
 
 		$('.zoom-proimg').zoom({ magnify: 2 });
 	}
-}
+}*/
 
 function init__footerCollapse() {
 	var $ww = $(window).width();
@@ -1129,7 +1139,8 @@ if ($(window).width() >= 768) {
 }
 
 $(window).scroll(function () {
-	if ($(window).scrollTop() + $(window).height() > $(document).height() - 10) {
+	var fooHeight = $('#footer').innerHeight() / 2;
+	if ($(window).scrollTop() + $(window).height() > $(document).height() - fooHeight) {
 		$('#footer').css({
 			"background-color": "#010101",
 			"color": "white"
