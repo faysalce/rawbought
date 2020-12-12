@@ -106,8 +106,26 @@ $category = get_queried_object();
             );
                        
             $variations = new WP_Query($args);
+
+
+            $product_args = array(
+                'numberposts' => 1000,
+                'post_status' => array('publish', 'pending', 'private', 'draft'),
+                'post_type' => array('product', 'product_variation'),
+                'order' => 'ASC',
+                    );
+        
+            $product_args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'id',
+                    'terms' => array(13), //vategory IDs
+                    'operator' => 'IN',
+            ));
+            $all_product_n_variation_query = new WP_Query($product_args);
+count($all_product_n_variation_query);
             echo "<pre>";
-            print_r($variations);
+           // print_r($variations);
             echo "</pre>";
            if ( $variations->have_posts() ) {
  
