@@ -457,14 +457,7 @@ endwhile; // End of the loop.
 
                     <?php if (wp_is_mobile()) { ?>
 
-                        $('#productMainSlider').slick({
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            arrows: true,
-                            swipe: false,
-                            dots: false,
-                            asNavFor: '#productMainSliderNav'
-                        });
+                        init__productImgSliderMobile();
                     <?php } else { ?>
                         init__productImgZoomSlider();
 
