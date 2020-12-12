@@ -19,6 +19,7 @@ while (have_posts()) :
     $product->get_image();
     $images = $product->get_gallery_image_ids();
     $product_attributes = $product->get_attributes();
+
 ?>
     <main id="main-content">
         <div class="has-fixed-navbar"></div>
@@ -239,6 +240,17 @@ while (have_posts()) :
 
                                     </div>
                                     <div class="vp-single-info-bottom">
+
+	<?php
+	/**
+	 * Hook: woocommerce_after_single_product_summary.
+	 *
+	 * @hooked woocommerce_output_product_data_tabs - 10
+	 * @hooked woocommerce_upsell_display - 15
+	 * @hooked woocommerce_output_related_products - 20
+	 */
+	do_action( 'woocommerce_after_single_product_summary' );
+	?>
                                         <div class="accordion product-accordion" id="productAccordion">
                                             <div class="card">
                                                 <div class="card-header" id="headingOne">
