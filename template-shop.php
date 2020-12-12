@@ -16,13 +16,7 @@ get_header();
             <div class="header-jumbotron">
                 <div class="jumbotron-legend">
                     <?php
-                    // $termsColour = get_terms(array(
-                    //     'taxonomy' => 'pa_colour',
-                    //     'hide_empty' => false,
-                    //     'fields' => 'slugs',
-                    // ));
-                    // $termsColourBlack=array('black');
-                    // $deafultcolor=array('lilac-pink','light-pink','black');
+                   
                     $args = array(
                         'posts_per_page' => -1,
                         'post_type' => array('product_variation'),
@@ -33,21 +27,7 @@ get_header();
                             'value'   => 'yes',
                             
                         )),
-                        // 'tax_query' => array(
-                        //     array(
-                        //         'taxonomy' => 'pa_colour',
-                        //         'field'    => 'slug',
-                        //         'terms'    =>  $termsColour ,
-                        //     ),
-                        // ),
-                        // name of post type.
-                        // 'tax_query' => array(
-                        //     array(
-                        //         'taxonomy' => 'product_cat',   // taxonomy name
-                        //         'field' => 'term_id',           // term_id, slug or name
-                        //         'terms' => $category["category"],                  // term id, term slug or term name
-                        //     )
-                        // )
+                        
                     );
 
                     $all_products = get_posts($args);
