@@ -241,11 +241,7 @@ while (have_posts()) :
                                     </div>
                                     <div class="vp-single-info-bottom">
 
-	<?php
 	
-    wc_get_template( 'single-product/tabs/description.php' );
-
-	?>
                                         <div class="accordion product-accordion" id="productAccordion">
                                             <div class="card">
                                                 <div class="card-header" id="headingOne">
