@@ -154,7 +154,7 @@ $count++;
 
 
                                             </a>
-                                            <div class="product-quickview">
+                                            <div class="product-quickview d-none">
                                                 <button type="button" product_id="<?php echo $product_id; ?>" class="btn btn-site btn-white border-0 rounded-0 ajax-quickview" tabindex="-1">
                                                     Quick View
                                                 </button>

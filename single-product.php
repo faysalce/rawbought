@@ -249,7 +249,8 @@ while (have_posts()) :
 	 * @hooked woocommerce_upsell_display - 15
 	 * @hooked woocommerce_output_related_products - 20
 	 */
-	do_action( 'woocommerce_after_single_product_summary' );
+    wc_get_template( 'single-product/tabs/description.php' );
+
 	?>
                                         <div class="accordion product-accordion" id="productAccordion">
                                             <div class="card">
