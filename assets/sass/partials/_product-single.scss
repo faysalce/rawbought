@@ -448,7 +448,11 @@
     }
     .product_meta, .woocommerce-variation, 
     .wc-stripe-payment-request-wrapper, 
-    .wc-stripe-payment-request-button-separator {
+    #wc-stripe-payment-request-wrapper,
+    .wc-stripe-payment-request-button-separator, 
+    #wc-stripe-payment-request-button-separator, 
+    #wc-stripe-payment-request-button-separator, 
+    #wc-stripe-custom-button {
         opacity: 0 !important;
         visibility: hidden !important;
         display: none !important;
