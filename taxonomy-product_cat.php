@@ -239,9 +239,15 @@ get_header();
 
                         <?php
                         $args = array(
-                            'posts_per_page' => 9,
-                            'post_type' => 'product',
-                            'post_status' => 'publish',       // name of post type.
+                            'posts_per_page' => -1,
+                            'post_type' => array('product_variation'),
+                            'post_status' => 'publish',
+            
+                            'meta_query' => array(array(
+                                'key'     => '_show_shop_all',
+                                'value'   => 'yes',
+                                
+                            )),
                             'tax_query' => array(
                                 array(
                                     'taxonomy' => 'product_cat',   // taxonomy name
@@ -249,6 +255,7 @@ get_header();
                                     'terms' => $current_term->term_id,                  // term id, term slug or term name
                                 )
                             )
+                            
                         );
 
                         $all_products = get_posts($args);

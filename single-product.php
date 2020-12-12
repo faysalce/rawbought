@@ -503,29 +503,23 @@ endwhile; // End of the loop.
 
 
                 jQuery('#productMainSlider').slick("unslick");
-                <?php if (!wp_is_mobile()) { ?>
-                    jQuery('#productMainSliderNav').slick("unslick");
-                <?php } ?>
+                    <?php if (!wp_is_mobile()) { ?>
+                        jQuery('#productMainSliderNav').slick("unslick");
+                    <?php } ?>
 
-                jQuery('#productMainSlider').html(slideImages);
-                <?php if (!wp_is_mobile()) { ?>
-                    jQuery('#productMainSliderNav').html(sliderImageNave);
-                <?php } ?>
+                    jQuery('#productMainSlider').html(slideImages);
+                    <?php if (!wp_is_mobile()) { ?>
+                        jQuery('#productMainSliderNav').html(sliderImageNave);
+                    <?php } ?>
 
-                <?php if (wp_is_mobile()) { ?>
+                    <?php if (wp_is_mobile()) { ?>
 
-                    $('#productMainSlider').slick({
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: true,
-                        swipe: false,
-                        dots: false,
-                        asNavFor: '#productMainSliderNav'
-                    });
-                <?php } else { ?>
-                    init__productImgZoomSlider();
+                        init__productImgSliderMobile();
+                    <?php } else { ?>
+                        init__productImgZoomSlider();
 
-                <?php } ?>
+                    <?php } ?>
+
 
 
 
