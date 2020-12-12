@@ -20,8 +20,8 @@
 
 get_header();
 $category = get_queried_object();
-                                        $page_term = $category->term_id;
-                                        $current_term = get_term($category->term_id);
+$page_term = $category->term_id;
+$current_term = get_term($category->term_id);
 ?>
 
 <main id="main-content">
@@ -31,17 +31,15 @@ $category = get_queried_object();
             <div class="header-jumbotron">
                 <div class="jumbotron-legend">
                     <h1 class="jumbotron-title h2"><?php
-                    if($page_term && $current_term->taxonomy=='product_cat'){
-                        echo $current_term->name ;
+                                                    if ($page_term && $current_term->taxonomy == 'product_cat') {
+                                                        echo $current_term->name;
+                                                    } else {
+                                                    }
 
-                    }else{
 
-                    }
-                       
-                     
-                     ?></h1>
+                                                    ?></h1>
                     <span class="jumbotron-label mt-3">
-                        <span><?php echo $current_term->count;?> results</span>
+                        <span><?php echo $current_term->count; ?> results</span>
                     </span>
                 </div>
                 <div class="products-filterbar products-filters">
@@ -73,162 +71,116 @@ $category = get_queried_object();
             </div>
             <div class="row category-products">
 
-            <?php
-             $args = array(
-                'post_type' => 'product_variation',
-                'post_status' => array('private', 'publish'),
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'product_cat',
-                        'field' => 'term_id',
-                        'terms' => $current_term->term_id,
+                <?php
+                $args = array(
+                    'posts_per_page' => 9,
+                    'post_type' => 'product',
+                    'post_status' => 'publish',       // name of post type.
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_cat',   // taxonomy name
+                            'field' => 'term_id',           // term_id, slug or name
+                            'terms' => $current_term->term_id,                  // term id, term slug or term name
+                        )
                     )
-                )
-                
+                );
 
-                // 'posts_per_page' => -1,
-                // 'post_type' => array('product_variation'),
-                // 'post_status' => 'publish',
+                $all_products = get_posts($args);
+                if (count($all_products) > 0) {
 
-                // 'meta_query' => array(array(
-                //     'key'     => '_show_shop_all',
-                //     'value'   => 'yes',
-                    
-                // )),
-                // 'tax_query' => array(
-                //     array(
-                //         'taxonomy' => 'product_cat',   // taxonomy name
-                //         'field' => 'term_id',           // term_id, slug or name
-                //         'terms' => $current_term->term_id,                  // term id, term slug or term name
-                //     )
-                // )
-                
-            );
-                       
-            $variations = new WP_Query($args);
-
-
-            $product_args = array(
-                'numberposts' => 1000,
-                'post_status' => array('publish', 'pending', 'private', 'draft'),
-                'post_type' => array('product', 'product_variation'),
-                'order' => 'ASC',
-                    );
-        
-            $product_args['tax_query'] = array(
-                array(
-                    'taxonomy' => 'product_cat',
-                    'field' => 'id',
-                    'terms' => array($current_term->term_id), //vategory IDs
-                    'operator' => 'IN',
-            ));
-            $all_product_n_variation_query = new WP_Query($product_args);
-
-            echo "<pre>";
-           print_r($all_product_n_variation_query);
-            echo "</pre>";
-           if ( $variations->have_posts() ) {
- 
-               while ( $variations->have_posts() ) :$variations->the_post();
-               
-               $product = wc_get_product(get_the_ID());
-                        $product_id = get_the_ID();
-                        $images = $product->get_gallery_image_ids();
-                        $post_thumbnail_id = get_post_thumbnail_id($product_id);
-                        if (!empty($post_thumbnail_id)) {
-                            $post_thumbnail_src = wp_get_attachment_image_src($post_thumbnail_id, 'large'); //get thumbnail image url			
-                            $image_src = $post_thumbnail_src[0];
-                        } else {
-                            $image_src = get_template_directory_uri() . '/assets/images/product-placeholder.jpg';
-                        }
-
-                        $sale_price = $product->get_sale_price();
-                        $regular_price = $product->get_price();
-               ?>
-                    
-
-                    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-mb">
-                            <div class="product product-standard text-center">
-                                <div class="product-media">
-                                    <a href="<?php echo get_permalink($product_id); ?>" class="product-image">
-
-                                        <?php
-
-                                        $post_thumbnail_id = get_post_thumbnail_id($product_id);
-
-
-                                        if (!empty($post_thumbnail_id)) {
-                                            $post_thumbnail_src = wp_get_attachment_image_src($post_thumbnail_id, 'full'); //get thumbnail image url			
-                                            $image_src = $post_thumbnail_src[0];
-                                        } else {
-                                            $image_src = get_template_directory_uri() . '/assets/images/product-placeholder.jpg';
-                                        }
-
-
-                                        ?>
-
-
-                                        <img src="<?php echo $image_src; ?>" alt="" class="product-static-img">
-
-
-                                        <?php
-                                        if (count($images) > 0) {
+                    foreach ($all_products as $all_product) {
 
 
 
-                                            $post_thumbnail_src = wp_get_attachment_image_src($images[0], 'full'); //get thumbnail image url			
-                                            $image_src = $post_thumbnail_src[0];
+                        $args2 = array(
+                            'posts_per_page' => -1,
+                            'post_type' => array('product_variation'),
+                            'post_status' => 'publish',
+                            'post_parent' => $all_product->ID,
+                            'meta_query' => array(array(
+                                'key'     => '_show_shop_all',
+                                'value'   => 'yes',
+
+                            )),
+
+                        );
+
+                        $all_productsVarient = get_posts($args2);
+
+                        if (count($all_productsVarient) > 0) {
 
 
+                            foreach ($all_productsVarient as $productVarieant) {
 
-                                        ?>
+                                $product = wc_get_product($productVarieant->ID);
+                                $product_id = $productVarieant->ID;
+                                $images = $product->get_gallery_image_ids();
+                                $post_thumbnail_id = get_post_thumbnail_id($productVarieant->ID);
+                                if (!empty($post_thumbnail_id)) {
+                                    $post_thumbnail_src = wp_get_attachment_image_src($post_thumbnail_id, 'large'); //get thumbnail image url			
+                                    $image_src = $post_thumbnail_src[0];
+                                } else {
+                                    $image_src = get_template_directory_uri() . '/assets/images/product-placeholder.jpg';
+                                }
+                                $produtimages = get_post_meta($product_id, 'woo_variation_gallery_images', true);
 
+                                //$post_thumbnail_id_secound = get_post_thumbnail_id($produtimages[0]);
+                                if (!empty($produtimages[0])) {
+                                    $post_thumbnail_src_sec = wp_get_attachment_image_src($produtimages[0], 'large'); //get thumbnail image url			
+                                    $image_src_sec = $post_thumbnail_src_sec[0];
+                                } else {
+                                    $image_src_sec = get_template_directory_uri() . '/assets/images/product-placeholder.jpg';
+                                }
 
-                                            <img src="<?php echo $image_src; ?>" alt="" class="product-hover-img">
-
-
-                                        <?php
-                                        } ?>
-                                    </a>
-                                    <div class="product-quickview">
-                                        <button type="button" product_id="<?php echo $product_id;?>" class="btn btn-site btn-white border-0 rounded-0 ajax-quickview" tabindex="-1">
-                                            Quick View
-                                        </button>
-                                    </div>
-                                </div>
-
-
-
-
-
-                                <div class="product-content">
-                                    <h6 class="product-title"><a href="<?php echo get_permalink($product_id); ?>"><?php echo $product->get_name(); ?></a></h6>
-                                    <div class="product-price">
-                                        <?php echo $product->get_price_html(); ?>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-                        </div>
-
-
-
-
-                <?php endwhile; ?>
-             
-             
-                <?php wp_reset_postdata(); ?>
-             
-           <?php } 
-
-                       
-
-
+                                $sale_price = $product->get_sale_price();
+                                $regular_price = $product->get_price();
                 ?>
 
+
+                                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-mb">
+                                    <div class="product product-standard text-center">
+                                        <div class="product-media">
+                                            <a href="<?php echo get_permalink($productVarieant->ID); ?>" class="product-image">
+
+                                                <img src="<?php echo $image_src; ?>" alt="" class="product-static-img">
+
+
+
+
+
+                                                <img src="<?php echo $image_src_sec; ?>" alt="" class="product-hover-img">
+
+
+
+                                            </a>
+                                            <div class="product-quickview">
+                                                <button type="button" product_id="<?php echo $product_id; ?>" class="btn btn-site btn-white border-0 rounded-0 ajax-quickview" tabindex="-1">
+                                                    Quick View
+                                                </button>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="product-content">
+                                            <h6 class="product-title"><a href="<?php echo get_permalink($product_id); ?>"><?php echo $product->get_name(); ?></a></h6>
+                                            <div class="product-price">
+                                                <?php echo $product->get_price_html(); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                <?php }
+                        }
+                    }
+                } ?>
 
 
             </div>
