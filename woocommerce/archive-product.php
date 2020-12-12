@@ -131,6 +131,7 @@ $current_term = get_term($category->term_id);
                                 } else {
                                     $image_src_sec = get_template_directory_uri() . '/assets/images/product-placeholder.jpg';
                                 }
+                                $productParent = wc_get_product( $product->get_parent_id() );
 
                                 $sale_price = $product->get_sale_price();
                                 $regular_price = $product->get_price();
@@ -165,7 +166,7 @@ $current_term = get_term($category->term_id);
 
 
                                         <div class="product-content">
-                                            <h6 class="product-title"><a href="<?php echo get_permalink($product_id); ?>"><?php echo $product->get_name(); ?></a></h6>
+                                            <h6 class="product-title"><a href="<?php echo get_permalink($product_id); ?>"><?php echo $productParent->get_name(); ?></a></h6>
                                             <div class="product-price">
                                                 <?php echo $product->get_price_html(); ?>
                                             </div>
