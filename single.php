@@ -17,7 +17,7 @@ get_header();
 			the_post();
 			$post_thumbnail_id = get_post_thumbnail_id(get_the_ID());
             if (!empty($post_thumbnail_id)) {
-                $post_thumbnail_src = wp_get_attachment_image_src($post_thumbnail_id, 'large'); //get thumbnail image url			
+                $post_thumbnail_src = wp_get_attachment_image_src($post_thumbnail_id, 'full'); //get thumbnail image url			
                 $image_src = $post_thumbnail_src[0];
             } else {
                 $image_src = '';
@@ -25,7 +25,7 @@ get_header();
 ?>
         <section class="section section-sm article-single">
             <div class="container container-md-fluid">
-                <div class="article-head text-center">
+                <div class="article-head">
                     <div class="header-jumbotron">
                         <div class="jumbotron-legend">
                             <h1 class="jumbotron-title h2"><?php the_title();?></h1>

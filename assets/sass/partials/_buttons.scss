@@ -2,6 +2,10 @@
 /* BUTTON */
 
 .btn {
+  &.disabled, 
+  &:disabled {
+    pointer-events: none;
+  }
   &:active,
   &.active {
     &:focus,

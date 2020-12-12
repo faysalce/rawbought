@@ -39,7 +39,7 @@
                 </div>
             </div>
         </section>
-        <section class="section">
+        <section class="section pt-0">
             <div class="container container-md-fluid">
                 <div class="flexions">
                     <?php the_content();?>

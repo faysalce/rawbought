@@ -16,10 +16,6 @@
 		padding-right: 15px;
 	}
 }
-.footer-navwrap, 
-.footernav-body {
-	//height: 100%;
-}
 .footer-navs {
 	display: flex;
 	flex-wrap: wrap;
@@ -57,7 +53,6 @@
 	font-size: .875rem;
 	display: flex;
 	flex-direction: column;
-	//min-height: 100%;
 	li {
 		display: block;
 		+ li {
@@ -92,24 +87,24 @@
 	}
 	.form-control {
 		font-size: .75rem;
-		color: $white;
+		color: $color-text;
 		background-color: transparent;
 		border-top: 0;
 		border-right: 0;
 		border-left: 0;
-		border-bottom: 1px solid rgba($white, .35);
+		border-bottom: 1px solid rgba($black, .35);
 		border-radius: 0;
 		padding-left: 0;
 		padding-right: 0;
 		transition: all 0.25s ease;
 		@include placeholder {
-			color: rgba($white, .65);
+			color: rgba($black, .65);
 		}
 		&:focus {
 			box-shadow: none;
-			border-bottom-color: rgba($white, .6);
+			border-bottom-color: rgba($black, .6);
 			@include placeholder {
-				color: rgba($white, 0);
+				color: rgba($black, 0);
 			}
 		}
 	}
@@ -147,6 +142,21 @@
 	::selection {
 	    color: $dark;
 	    background: $bg-light;
+	}
+	.footer-newsletter {
+		.form-control {
+			color: $white;
+			border-bottom-color: rgba($white, .35);
+			@include placeholder {
+				color: rgba($white, .65);
+			}
+			&:focus {
+				border-bottom-color: rgba($white, .6);
+				@include placeholder {
+					color: rgba($white, 0);
+				}
+			}
+		}
 	}
 	.footer-title {
 		color: $white;

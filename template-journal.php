@@ -77,7 +77,7 @@ get_header();
                                 <div class="post-content">
                                     <h6 class="post-title"><?php echo $post->post_title; ?></h6>
                                     <div class="post-text">
-                                        <?php echo substrwords(get_the_excerpt(), 20, ''); ?> </div>
+                                        <?php echo substrwords(get_the_excerpt(), 50, ''); ?>...</div>
                                 </div>
                                 <div class="post-footer">
                                     <div class="post-actions">
@@ -85,9 +85,7 @@ get_header();
                                     </div>
                                 </div>
                             </a>
-                        </div> 
-                        
-                        <?php endwhile; ?>
+                        </div> <?php endwhile; ?>
                     <!-- end of the loop -->
 
                     <!-- pagination here -->

@@ -1,3 +1,15 @@
 .alert-default {
 	border-color: $border-color;
 }
+.woocommerce-info {
+	background-color: $bg-light;
+	border: 1px solid $dark;
+	color: $color-text;
+	padding: 1.75rem 2rem;
+	&:before {
+		display: none;
+	}
+}
+.woocommerce-warning {
+	@extend .woocommerce-info;
+}
