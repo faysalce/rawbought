@@ -75,22 +75,32 @@ $category = get_queried_object();
 
             <?php
              $args = array(
-                'posts_per_page' => -1,
-                'post_type' => array('product_variation'),
-                'post_status' => 'publish',
-
-                'meta_query' => array(array(
-                    'key'     => '_show_shop_all',
-                    'value'   => 'yes',
-                    
-                )),
+                'post_type' => 'product_variation',
+                'post_status' => array('private', 'publish'),
                 'tax_query' => array(
                     array(
-                        'taxonomy' => 'product_cat',   // taxonomy name
-                        'field' => 'term_id',           // term_id, slug or name
-                        'terms' => $current_term->term_id,                  // term id, term slug or term name
+                        'taxonomy' => 'product_cat',
+                        'field' => 'term_id',
+                        'terms' => $current_term->term_id,
                     )
                 )
+
+                // 'posts_per_page' => -1,
+                // 'post_type' => array('product_variation'),
+                // 'post_status' => 'publish',
+
+                // 'meta_query' => array(array(
+                //     'key'     => '_show_shop_all',
+                //     'value'   => 'yes',
+                    
+                // )),
+                // 'tax_query' => array(
+                //     array(
+                //         'taxonomy' => 'product_cat',   // taxonomy name
+                //         'field' => 'term_id',           // term_id, slug or name
+                //         'terms' => $current_term->term_id,                  // term id, term slug or term name
+                //     )
+                // )
                 
             );
                        
