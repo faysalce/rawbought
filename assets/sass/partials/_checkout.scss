@@ -136,13 +136,18 @@
             }
         }
         .cart-price-wrp {
-            &:after {
+            /*&:after {
                 display: inline-block;
                 content: " / ";
                 margin-left: 5px;
                 margin-right: 5px;
-            }
+            }*/
         }
+    }
+}
+.cart-item-meta {
+    .woocommerce-Price-amount {
+        color: $color-text;
     }
 }
 
@@ -408,5 +413,12 @@
     }
     th {
         text-transform: uppercase;
+    }
+}
+
+.woocommerce-terms-and-conditions-checkbox-text {
+    a {
+        text-decoration: underline;
+        text-transform: capitalize;
     }
 }
