@@ -119,13 +119,13 @@ $category = get_queried_object();
                 array(
                     'taxonomy' => 'product_cat',
                     'field' => 'id',
-                    'terms' => array(13), //vategory IDs
+                    'terms' => array($current_term->term_id), //vategory IDs
                     'operator' => 'IN',
             ));
             $all_product_n_variation_query = new WP_Query($product_args);
-count($all_product_n_variation_query);
+
             echo "<pre>";
-           // print_r($variations);
+           print_r($all_product_n_variation_query);
             echo "</pre>";
            if ( $variations->have_posts() ) {
  
