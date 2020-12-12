@@ -84,6 +84,7 @@ $category = get_queried_object();
                         'terms' => $current_term->term_id,
                     )
                 )
+                
 
                 // 'posts_per_page' => -1,
                 // 'post_type' => array('product_variation'),
@@ -104,7 +105,9 @@ $category = get_queried_object();
                 
             );
                        
-
+            $variations = new WP_Query($args);
+            var_dump($variations->request);
+            
                         $all_products = get_posts($args);
                         if (count($all_products) > 0) {
 
