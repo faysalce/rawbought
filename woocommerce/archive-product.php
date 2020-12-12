@@ -106,16 +106,14 @@ $category = get_queried_object();
             );
                        
             $variations = new WP_Query($args);
-            var_dump($variations);
-
-                        $all_products = get_posts($args);
-                        if (count($all_products) > 0) {
-
-                    foreach ($all_products as $all_product) {
-                        $product = wc_get_product($all_product->ID);
-                        $product_id = $all_product->ID;
+           if ( $variations->have_posts() ) {
+ 
+               while ( $variations->have_posts() ) :$variations->the_post();
+               
+               $product = wc_get_product(get_the_ID());
+                        $product_id = get_the_ID();
                         $images = $product->get_gallery_image_ids();
-                        $post_thumbnail_id = get_post_thumbnail_id($all_product->ID);
+                        $post_thumbnail_id = get_post_thumbnail_id($product_id);
                         if (!empty($post_thumbnail_id)) {
                             $post_thumbnail_src = wp_get_attachment_image_src($post_thumbnail_id, 'large'); //get thumbnail image url			
                             $image_src = $post_thumbnail_src[0];
@@ -125,15 +123,13 @@ $category = get_queried_object();
 
                         $sale_price = $product->get_sale_price();
                         $regular_price = $product->get_price();
+               ?>
+                    
 
-
-                ?>
-
-
-                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-mb">
+                    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-mb">
                             <div class="product product-standard text-center">
                                 <div class="product-media">
-                                    <a href="<?php echo get_permalink($all_product->ID); ?>" class="product-image">
+                                    <a href="<?php echo get_permalink($product_id); ?>" class="product-image">
 
                                         <?php
 
@@ -197,8 +193,21 @@ $category = get_queried_object();
 
                         </div>
 
-                <?php }
-                } ?>
+
+
+
+                <?php endwhile; ?>
+             
+             
+                <?php wp_reset_postdata(); ?>
+             
+           <?php } 
+
+                       
+
+
+                ?>
+
 
 
             </div>
