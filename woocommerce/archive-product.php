@@ -106,6 +106,9 @@ $category = get_queried_object();
             );
                        
             $variations = new WP_Query($args);
+            echo "<pre>";
+            print_r($variations);
+            echo "</pre>";
            if ( $variations->have_posts() ) {
  
                while ( $variations->have_posts() ) :$variations->the_post();
