@@ -39,7 +39,7 @@ $current_term = get_term($category->term_id);
 
                                                     ?></h1>
                     <span class="jumbotron-label mt-3">
-                        <span><?php echo $current_term->count; ?> results</span>
+                        <span class="total-count-top"><?php echo $current_term->count; ?> results</span>
                     </span>
                 </div>
                 <div class="products-filterbar products-filters">
@@ -73,7 +73,7 @@ $current_term = get_term($category->term_id);
 
                 <?php
                 $args = array(
-                    'posts_per_page' => 9,
+                    'posts_per_page' => -1,
                     'post_type' => 'product',
                     'post_status' => 'publish',       // name of post type.
                     'tax_query' => array(
@@ -90,7 +90,7 @@ $current_term = get_term($category->term_id);
 
                     foreach ($all_products as $all_product) {
 
-
+$count=0;
 
                         $args2 = array(
                             'posts_per_page' => -1,
@@ -111,7 +111,7 @@ $current_term = get_term($category->term_id);
 
 
                             foreach ($all_productsVarient as $productVarieant) {
-
+$count++;
                                 $product = wc_get_product($productVarieant->ID);
                                 $product_id = $productVarieant->ID;
                                 $images = $product->get_gallery_image_ids();
@@ -182,7 +182,7 @@ $current_term = get_term($category->term_id);
                         }
                     }
                 } ?>
-
+<input type="hidden" name="total_product_count" class="total_product_count" value="<?php echo $count;?>" />
 
             </div>
         </div>
@@ -193,3 +193,9 @@ $current_term = get_term($category->term_id);
 
 
 <?php get_footer(); ?>
+<script>
+    jQuery(document).ready(function($){
+
+        $('.total-count-top').html($('.total_product_count').val());
+    });
+</script>
