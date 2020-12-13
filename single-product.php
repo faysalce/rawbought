@@ -283,7 +283,7 @@ while (have_posts()) :
                                                 </div>
                                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#productAccordion">
                                                     <div class="card-body">
-                                                        <?php echo get_post_meta($product->get_id(), 'return_delivery', true); ?> </div>
+                                                        <?php echo get_post_meta($product->get_id(), 'product_return_delivery', true); ?> </div>
                                                 </div>
                                             </div>
                                         </div>
