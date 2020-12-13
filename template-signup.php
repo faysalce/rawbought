@@ -25,6 +25,9 @@ get_header();
                                 <div class="sign-bottometa mt-3">
                                     Already have an account? <a href="<?php echo get_permalink(get_page_by_path('login'));?>">Sign in here.</a>
                                 </div>
+                                <div class="signup-status-msg">
+                                    
+                                    </div>
                             </div>
                             <span class="signup-status"></span>
                             <form id="checkout-signup" method="post">
