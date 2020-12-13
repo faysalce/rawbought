@@ -87,10 +87,19 @@
                                             <div class="footer-newsletter-form">
 
                                                 <input type="hidden" name="nlang" value="">
-                                                <input class="form-control form-control-sm newsletter-email-footer" type="text" name="ne" value="" >
+
+                                                <input class="form-control form-control-sm newsletter-email-footer" type="text" name="ne" value="">
                                                 <button type="submit" value="Subscribe" class="btn btn-nttr-submit ">
                                                     <i class="ti-angle-right"></i>
                                                 </button>
+
+
+                                                <input type="hidden" name="na" value="s">
+
+                                                <input type="hidden" name="nhr" value="<?php echo home_url(); ?>">
+                                                <input type="hidden" name="ts" value="<?php echo time(); ?>">
+
+
                                         </form>
 
                                     </div>
@@ -124,14 +133,14 @@ if (wp_is_mobile()) {
 ?>
 
 
-        <style>
-            .menu-login-item-mobile-hide {
-                display: block;
+    <style>
+        .menu-login-item-mobile-hide {
+            display: block;
 
-            }
-        </style>
+        }
+    </style>
 
-    <?php  
+<?php
 } else { ?>
     <style>
         .menu-login-item-mobile-hide {
@@ -144,60 +153,58 @@ if (wp_is_mobile()) {
 ?>
 
 <script>
+    $(document).ready(function() {
+        $(".newsletter-form").submit(function(e) {
 
-$(document).ready(function() {
-$(".newsletter-form").submit(function(e) {
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            var form = $(this);
+            var url = form.attr('action');
+            var place = form.attr('place');
 
-e.preventDefault(); // avoid to execute the actual submit of the form.
-var form = $(this);
-var url = form.attr('action');
-var place = form.attr('place');
+            var newsletterEmail = $('.newsletter-email-' + place).val();
+            var emailCheck = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i;
 
-var newsletterEmail = $('.newsletter-email-' + place).val();
-var emailCheck = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i;
-
-var emailadd = newsletterEmail;
-if (emailadd === "") {
-    $('.thanks-text-' + place).removeClass('d-none');
-
-    $('.thanks-text-' + place).html('Please enter a email address');
-    setTimeout(function() {
-        $('.thanks-text-' + place).addClass('d-none');
-
-    }, 5000);
-} else {
-    if (emailCheck.test(emailadd)) {
-
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: form.serialize(), // serializes the form's elements.
-            success: function(data) {
-                form.addClass('d-none');
+            var emailadd = newsletterEmail;
+            if (emailadd === "") {
                 $('.thanks-text-' + place).removeClass('d-none');
-                $('.thanks-text-' + place).html('Thank you for signing up.');
+
+                $('.thanks-text-' + place).html('Please enter a email address');
+                setTimeout(function() {
+                    $('.thanks-text-' + place).addClass('d-none');
+
+                }, 5000);
+            } else {
+                if (emailCheck.test(emailadd)) {
+
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: form.serialize(), // serializes the form's elements.
+                        success: function(data) {
+                            form.addClass('d-none');
+                            $('.thanks-text-' + place).removeClass('d-none');
+                            $('.thanks-text-' + place).html('Thank you for signing up.');
 
 
 
+                        }
+                    });
+                } else {
+
+
+                    $('.thanks-text-' + place).removeClass('d-none');
+
+                    $('.thanks-text-' + place).html('Sorry, please enter a valid email address');
+                    setTimeout(function() {
+                        $('.thanks-text-' + place).addClass('d-none');
+
+                    }, 5000);
+                }
             }
+
         });
-    } else {
 
-
-        $('.thanks-text-' + place).removeClass('d-none');
-
-        $('.thanks-text-' + place).html('Sorry, please enter a valid email address');
-        setTimeout(function() {
-            $('.thanks-text-' + place).addClass('d-none');
-
-        }, 5000);
-    }
-}
-
-});
-
-});
-
+    });
 </script>
 <?php if (is_home()) { ?>
     <script>
@@ -217,184 +224,184 @@ if (emailadd === "") {
     </script>
 <?php } ?>
 
-<?php if(is_page('shop-all')){?>
+<?php if (is_page('shop-all')) { ?>
 
 
     <script>
-    // jQuery(document).ready(function($) {
+        // jQuery(document).ready(function($) {
 
 
 
 
-    //     var selectedColor = $('input[type="radio"][name="attribute_pa_colour"]:checked').val();
-    //    // console.log(selectedColor);
-    //     if (selectedColor) {
+        //     var selectedColor = $('input[type="radio"][name="attribute_pa_colour"]:checked').val();
+        //    // console.log(selectedColor);
+        //     if (selectedColor) {
 
-    //         $('.item_attribute_pa_colour').removeClass('is-selected');
-    //         var allimages;
-    //         var checkedRadio = $('input[type="radio"][name="attribute_pa_colour"]:checked');
-    //         var name = checkedRadio.attr('proper-name');
-    //         var colorName = checkedRadio.val();
-    //         $('.product-name-pa_colour').html(name);
-    //         checkedRadio.closest('.item_attribute_pa_colour').addClass('is-selected');
-    //         allimages = JSON.parse($('.variation-color-image-data').attr('json-image'));
-    //         //console.log(allimages);
-    //         var slideImages, sliderImageNave;
-    //         if (Object.keys(allimages).length > 0) {
-    //             if (allimages[selectedColor].length > 0) {
+        //         $('.item_attribute_pa_colour').removeClass('is-selected');
+        //         var allimages;
+        //         var checkedRadio = $('input[type="radio"][name="attribute_pa_colour"]:checked');
+        //         var name = checkedRadio.attr('proper-name');
+        //         var colorName = checkedRadio.val();
+        //         $('.product-name-pa_colour').html(name);
+        //         checkedRadio.closest('.item_attribute_pa_colour').addClass('is-selected');
+        //         allimages = JSON.parse($('.variation-color-image-data').attr('json-image'));
+        //         //console.log(allimages);
+        //         var slideImages, sliderImageNave;
+        //         if (Object.keys(allimages).length > 0) {
+        //             if (allimages[selectedColor].length > 0) {
 
-    //                 allimages[selectedColor].forEach(function(item, index) {
-    //                     slideImages += ' <div class="slide-item"><div class="zoom-proimg" data-src="' + item + '"><img src="' + item + '" alt=""></div></div>';
-    //                     sliderImageNave += ' <div class="slide-item"><img src="' + item + '" alt=""></div>';
+        //                 allimages[selectedColor].forEach(function(item, index) {
+        //                     slideImages += ' <div class="slide-item"><div class="zoom-proimg" data-src="' + item + '"><img src="' + item + '" alt=""></div></div>';
+        //                     sliderImageNave += ' <div class="slide-item"><img src="' + item + '" alt=""></div>';
 
-    //                 });
+        //                 });
 
-    //                 jQuery('#productMainSlider').slick("unslick");
-    //                 jQuery('#productMainSliderNav').slick("unslick");
+        //                 jQuery('#productMainSlider').slick("unslick");
+        //                 jQuery('#productMainSliderNav').slick("unslick");
 
-    //                 jQuery('#productMainSlider').html(slideImages);
-    //                 jQuery('#productMainSliderNav').html(sliderImageNave);
-
-
-    //                 init__productImgZoomSlider();
-
-    //             }
-
-    //         }
+        //                 jQuery('#productMainSlider').html(slideImages);
+        //                 jQuery('#productMainSliderNav').html(sliderImageNave);
 
 
+        //                 init__productImgZoomSlider();
 
-    //     }
-    //     // console.log(arraydata);
-    //     $(document).on('change','input[type="radio"][name="attribute_pa_colour"]', function() {
-    //         if ($(this).is(':checked')) {
-    //             $('.item_attribute_pa_colour').removeClass('is-selected');
-    //             var allimages;
-    //             var name = $(this).attr('proper-name');
-    //             var colorName = $(this).val();
-    //             $('.product-name-pa_colour').html(name);
-    //             $(this).closest('.item_attribute_pa_colour').addClass('is-selected');
-    //             allimages = JSON.parse($(document).find('.variation-color-image-data').attr('json-image'));
-    //             //console.log(allimages);
-    //             var slideImages, sliderImageNave;
-    //             if (Object.keys(allimages).length > 0) {
-    //                 if (allimages[colorName].length > 0) {
+        //             }
 
-    //                     allimages[colorName].forEach(function(item, index) {
-    //                         slideImages += ' <div class="slide-item"><div class="zoom-proimg" data-src="' + item + '"><img src="' + item + '" alt=""></div></div>';
-    //                         sliderImageNave += ' <div class="slide-item"><img src="' + item + '" alt=""></div>';
-
-    //                     });
-    //                 }
-
-    //             }
+        //         }
 
 
-    //             jQuery('#productMainSlider').slick("unslick");
-    //             jQuery('#productMainSliderNav').slick("unslick");
 
-    //             jQuery('#productMainSlider').html(slideImages);
-    //             jQuery('#productMainSliderNav').html(sliderImageNave);
+        //     }
+        //     // console.log(arraydata);
+        //     $(document).on('change','input[type="radio"][name="attribute_pa_colour"]', function() {
+        //         if ($(this).is(':checked')) {
+        //             $('.item_attribute_pa_colour').removeClass('is-selected');
+        //             var allimages;
+        //             var name = $(this).attr('proper-name');
+        //             var colorName = $(this).val();
+        //             $('.product-name-pa_colour').html(name);
+        //             $(this).closest('.item_attribute_pa_colour').addClass('is-selected');
+        //             allimages = JSON.parse($(document).find('.variation-color-image-data').attr('json-image'));
+        //             //console.log(allimages);
+        //             var slideImages, sliderImageNave;
+        //             if (Object.keys(allimages).length > 0) {
+        //                 if (allimages[colorName].length > 0) {
+
+        //                     allimages[colorName].forEach(function(item, index) {
+        //                         slideImages += ' <div class="slide-item"><div class="zoom-proimg" data-src="' + item + '"><img src="' + item + '" alt=""></div></div>';
+        //                         sliderImageNave += ' <div class="slide-item"><img src="' + item + '" alt=""></div>';
+
+        //                     });
+        //                 }
+
+        //             }
 
 
-    //             init__productImgZoomSlider();
+        //             jQuery('#productMainSlider').slick("unslick");
+        //             jQuery('#productMainSliderNav').slick("unslick");
+
+        //             jQuery('#productMainSlider').html(slideImages);
+        //             jQuery('#productMainSliderNav').html(sliderImageNave);
 
 
+        //             init__productImgZoomSlider();
 
 
 
 
 
-    //         }
 
 
-    //     });
-    //     $(document).on('change','input[type="radio"][name="attribute_pa_size"]', function() {
-    //         if ($(this).is(':checked')) {
-    //             $('.item_attribute_pa_size').removeClass('is-selected');
-
-    //             var name = $(this).attr('proper-name');
-    //             console.log(name);
-    //             $('.product-name-pa_size').html(name);
-    //             $(this).closest('.item_attribute_pa_size').addClass('is-selected');
-    //         }
-
-    //     });
-        
-
-    //     $(document).on('submit',".variations_form",function(e) {
-
-    //         e.preventDefault(); // avoid to execute the actual submit of the form.
-    //         $('.full-page-loader').addClass('optional-overlay');
-
-    //         console.log('hello');
-    //         var form = $(this);
-    //         var url = form.attr('action');
-
-    //         $.ajax({
-    //             type: "POST",
-    //             url: url,
-    //             data: form.serialize(), // serializes the form's elements.
-    //             success: function(data) {
-    //                 $(document.body).trigger('wc_fragment_refresh');
-
-    //                 console.log('hello');
-
-    //                 $.ajax({
-    //                     type: 'POST',
-    //                     dataType: 'json',
-    //                     url: ajax_login_object.ajaxurl,
-    //                     data: {
-    //                         'action': 'get_minicart_total', //calls wp_ajax_nopriv_ajaxlogin
-
-    //                     },
-    //                     success: function(response) {
-
-    //                         $('.minicart-total-count').html(response);
+        //         }
 
 
+        //     });
+        //     $(document).on('change','input[type="radio"][name="attribute_pa_size"]', function() {
+        //         if ($(this).is(':checked')) {
+        //             $('.item_attribute_pa_size').removeClass('is-selected');
+
+        //             var name = $(this).attr('proper-name');
+        //             console.log(name);
+        //             $('.product-name-pa_size').html(name);
+        //             $(this).closest('.item_attribute_pa_size').addClass('is-selected');
+        //         }
+
+        //     });
 
 
-    //                     },
-    //                     error: function(request, status, error) {
+        //     $(document).on('submit',".variations_form",function(e) {
 
-    //                     }
-    //                 });
-    //                 $.ajax({
-    //                     type: 'POST',
+        //         e.preventDefault(); // avoid to execute the actual submit of the form.
+        //         $('.full-page-loader').addClass('optional-overlay');
 
-    //                     url: ajax_login_object.ajaxurl,
-    //                     data: {
-    //                         'action': 'get_minicart', //calls wp_ajax_nopriv_ajaxlogin
+        //         console.log('hello');
+        //         var form = $(this);
+        //         var url = form.attr('action');
 
-    //                     },
-    //                     success: function(response) {
-    //                         $('.full-page-loader').removeClass('optional-overlay');
+        //         $.ajax({
+        //             type: "POST",
+        //             url: url,
+        //             data: form.serialize(), // serializes the form's elements.
+        //             success: function(data) {
+        //                 $(document.body).trigger('wc_fragment_refresh');
 
-    //                         $('.minicart-container-main').html(response);
+        //                 console.log('hello');
 
-                           
+        //                 $.ajax({
+        //                     type: 'POST',
+        //                     dataType: 'json',
+        //                     url: ajax_login_object.ajaxurl,
+        //                     data: {
+        //                         'action': 'get_minicart_total', //calls wp_ajax_nopriv_ajaxlogin
 
-    //                             jQuery('#cartModal').modal('show');
+        //                     },
+        //                     success: function(response) {
 
-                          
-
-
-    //                     },
-    //                     error: function(request, status, error) {
-
-    //                     }
-    //                 });
-
-
-    //             }
-    //         });
+        //                         $('.minicart-total-count').html(response);
 
 
-    //     });
 
-    // });
-</script>
+
+        //                     },
+        //                     error: function(request, status, error) {
+
+        //                     }
+        //                 });
+        //                 $.ajax({
+        //                     type: 'POST',
+
+        //                     url: ajax_login_object.ajaxurl,
+        //                     data: {
+        //                         'action': 'get_minicart', //calls wp_ajax_nopriv_ajaxlogin
+
+        //                     },
+        //                     success: function(response) {
+        //                         $('.full-page-loader').removeClass('optional-overlay');
+
+        //                         $('.minicart-container-main').html(response);
+
+
+
+        //                             jQuery('#cartModal').modal('show');
+
+
+
+
+        //                     },
+        //                     error: function(request, status, error) {
+
+        //                     }
+        //                 });
+
+
+        //             }
+        //         });
+
+
+        //     });
+
+        // });
+    </script>
 <?php } ?>
 
 </html>
