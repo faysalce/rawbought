@@ -115,3 +115,7 @@
 		}
 	}
 }
+.woocommerce #payment #place_order, .woocommerce-page #payment #place_order {
+	width: auto !important;
+	margin-bottom: 0 !important;
+}
