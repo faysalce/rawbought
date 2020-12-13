@@ -16,7 +16,17 @@ get_header();
             <div class="header-jumbotron">
                 <div class="jumbotron-legend">
                     <?php
+                   if(isset($_REQUEST['orderByPrice'])){
+                    $order_by=$_REQUEST['orderByPrice'];
+                   }else{
+                    $order_by='';
+                   }
+                
                    
+
+
+
+
                     $args = array(
                         'posts_per_page' => -1,
                         'post_type' => array('product_variation'),
@@ -29,6 +39,32 @@ get_header();
                         )),
                         
                     );
+                    switch ($order_by){
+
+                        case 'price-low-high':
+                            $args['orderby'] = 'meta_value_num';
+                            $args['meta_key'] = '_price';
+                            $args['order'] = 'asc';
+                            break;
+        
+                        case 'price-high-low':
+                            $args['orderby'] = 'meta_value_num';
+                            $args['meta_key'] = '_price';
+                            $args['order'] = 'desc';
+                            break;
+        
+                        // case 'rating':
+                        //     $args['orderby'] = 'meta_value_num';
+                        //     $args['meta_key'] = '_wc_average_rating';
+                        //     $args['order'] = 'desc';
+                        //     break;
+        
+                        // case 'popularity':
+                        //     $args['orderby'] = 'meta_value_num';
+                        //     $args['meta_key'] = 'total_sales';
+                        //     $args['order'] = 'desc';
+                        //     break;
+                    }
 
                     $all_products = get_posts($args);
                     ?>
@@ -59,9 +95,8 @@ get_header();
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sortDropdown">
-                                <a class="dropdown-item" href="#">New Arrivals</a>
-                                <a class="dropdown-item" href="#">Price: Low to High</a>
-                                <a class="dropdown-item active" href="#">Price: High to Low</a>
+                                <a class="dropdown-item <?php if(isset($_REQUEST['orderByPrice']) && $_REQUEST['orderByPrice']=='price-low-high'){echo 'active';}?>" href="<?php echo get_permalink(get_page_by_path('shop-all'));?>/?orderByPrice=price-low-high">Price: Low to High</a>
+                                <a class="dropdown-item <?php if(isset($_REQUEST['orderByPrice']) && $_REQUEST['orderByPrice']=='price-high-low'){echo 'active';}?>" href="<?php echo get_permalink(get_page_by_path('shop-all'));?>/?orderByPrice=price-high-low">Price: High to Low</a>
                             </div>
                         </div>
                     </div>

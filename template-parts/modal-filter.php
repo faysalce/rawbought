@@ -27,7 +27,7 @@
                 
                                       
                                         $productCats = get_terms('product_cat', array(
-                                            'hide_empty' => false,
+                                            'hide_empty' => true,
                                         ));
                                         if (count($productCats) > 0) {
                                             foreach ($productCats as $cat) {
@@ -45,7 +45,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="collapse-item">
+                            <div class="collapse-item d-none">
                                 <a class="link-collapse collapsed" data-toggle="collapse" href="#s_collapse_3" role="button" aria-expanded="false" aria-controls="s_collapse_3">
                                     Size
                                 </a>
@@ -129,7 +129,7 @@
                                     </div>
                                 </div>
                             </div>   -->
-                            <div class="collapse-item">
+                            <div class="collapse-item d-none">
                                 <a class="link-collapse collapsed" data-toggle="collapse" href="#s_collapse_6" role="button" aria-expanded="false" aria-controls="s_collapse_6">
                                     Price
                                 </a>
