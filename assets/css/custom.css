@@ -237,10 +237,15 @@
     .page-template-template-about .wp-block-spacer {
         height: 30px !important;
     }
+    .woocommerce #payment #place_order, 
+    .woocommerce-page #payment #place_order {
+        width: auto !important;
+        margin-bottom: 0 !important;
+    }
 }
 .optional{
-display: none;
-opacity: 0;
+    display: none;
+    opacity: 0;
 }
 
 

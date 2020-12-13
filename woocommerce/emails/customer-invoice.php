@@ -362,7 +362,7 @@ do_action('woocommerce_email_header', $email_heading, $email); ?>
                                                                             <tr>
                                                                                 <td style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 16px; line-height: 24px; font-weight: normal; font-style: normal; color:#010101;">
                                                                                     <p style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 16px; line-height: 24px; font-weight: normal; font-style: normal; color:#010101;">
-                                                                                        For any other queries, pls contact us at <a href="mailto:admin@rawbought.com">admin@rawbought.com</a> or WhatsApp at +65 8725 6066.
+                                                                                        For any other queries, pls contact us at <a href="mailto:admin@rawbought.com">admin@rawbought.com</a> or WhatsApp at <a href="https://api.whatsapp.com/send?phone=+6587256066" style="color:#010101;text-decoration:none">+65 8725 6066</a>.
                                                                                     </p>
                                                                                 </td>
                                                                             </tr>
@@ -416,10 +416,10 @@ do_action('woocommerce_email_header', $email_heading, $email); ?>
                                                                                         <tr>
                                                                                             <td style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 13px; line-height: 18px; font-weight: normal; font-style: normal; color:#010101; text-align: center;">
                                                                                                 <p style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 13px; line-height: 18px; font-weight: normal; font-style: normal; color:#010101;">
-                                                                                                    &copy; 2020 Rawbought. All Rights Reserved <br>
-                                                                                                    <a href="<?php echo get_permalink(get_page_by_path('privacy-policy')); ?>" style="color:#010101">Privacy Policy&nbsp;</a><span>/</span>
-                                                                                                    <a href="<?php echo get_permalink(get_page_by_path('contact')); ?>" style="color:#010101">Contact us&nbsp;</a><span>/</span>
-                                                                                                    <a href="<?php echo get_permalink(get_page_by_path('email-preferance')); ?>" style="color:#010101">Email Preferences&nbsp;</a>
+                                                                                                    &copy; 2020 
+                                                                                                    <a href="<?php echo home_url();?>" title="Rawbought" style="color:#010101;text-decoration:none">Rawbought</a>. All Rights Reserved <br>
+                                                                                                    <a href="'.get_permalink(get_page_by_path('terms-and-conditions')).'" style="color:#010101">Terms & Conditions&nbsp;</a><span>|</span>
+                                                                                                    <a href="'.get_permalink(get_page_by_path('faq')).'" style="color:#010101">FAQ</a>
                                                                                                 </p>
                                                                                             </td>
                                                                                         </tr>

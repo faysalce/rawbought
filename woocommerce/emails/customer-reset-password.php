@@ -74,8 +74,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                             <tr>
                                                                                 <td style="font-family:Maison Neue,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;font-size: 16px; line-height: 24px; font-weight: normal; font-style: normal; color:#010101;">
                                                                                     <p style="font-family:Maison Neue,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;font-size: 16px; line-height: 24px; font-weight: normal; font-style: normal; color:#010101;">
-                                                                                        Per your request, please <a style="color:#777777;text-decoration:underline;" href="<?php echo esc_url( add_query_arg( array( 'key' => $reset_key, 'id' => $user_id ), wc_get_endpoint_url( 'lost-password', '', wc_get_page_permalink( 'myaccount' ) ) ) ); ?>" target="_blank" >
-																						<?php esc_html_e( 'Click here ', 'woocommerce' ); ?>                                                                                                            </a> to reset and select your new password. 
+                                                                                        Per your request, please <a style="color:#010101;text-decoration:underline;" href="<?php echo esc_url( add_query_arg( array( 'key' => $reset_key, 'id' => $user_id ), wc_get_endpoint_url( 'lost-password', '', wc_get_page_permalink( 'myaccount' ) ) ) ); ?>" target="_blank" >
+																						<?php esc_html_e( 'click here ', 'woocommerce' ); ?>                                                                                                            </a> to reset and select your new password. 
                                                                                         If you did not initiate this request, feel free to safely ignore this email.
                                                                                     </p> 
                                                                                 </td>
@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                             <tr>
                                                                                 <td style="font-family:Maison Neue,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;font-size: 16px; line-height: 24px; font-weight: normal; font-style: normal; color:#010101;">
                                                                                     <p style="font-family:Maison Neue,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;font-size: 16px; line-height: 24px; font-weight: normal; font-style: normal; color:#010101;">
-                                                                                        For any other queries, pls contact us at <a href="mailto:admin@rawbought.com">admin@rawbought.com</a> or WhatsApp at +65 8725 6066.
+                                                                                        For any other queries, pls contact us at <a href="mailto:admin@rawbought.com">admin@rawbought.com</a> or WhatsApp at <a href="https://api.whatsapp.com/send?phone=+6587256066" style="color:#010101;text-decoration:none">+65 8725 6066</a>.
                                                                                     </p> 
                                                                                 </td>
                                                                             </tr>
@@ -134,12 +134,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                                 <tr><td height="20px" style="height: 20px;"></td></tr>
                                                                                 <tr>
                                                                                     <td style="font-family:Maison Neue,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;font-size: 13px; line-height: 18px; font-weight: normal; font-style: normal; color:#010101; text-align: center;">
-																					<p style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 13px; line-height: 18px; font-weight: normal; font-style: normal; color:#010101;">
-                                                                                &copy; 2020 Rawbought. All Rights Reserved <br>
-                                                                                <a href="<?php echo get_permalink(get_page_by_path('privacy-policy')); ?>" style="color:#010101">Privacy Policy&nbsp;</a><span>/</span>
-                                                                                <a href="<?php echo get_permalink(get_page_by_path('contact')); ?>" style="color:#010101">Contact us&nbsp;</a><span>/</span>
-                                                                                <a href="<?php echo get_permalink(get_page_by_path('email-preferance')); ?>" style="color:#010101">Email Preferences&nbsp;</a>
-                                                                            </p>
+    																					<p style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 13px; line-height: 18px; font-weight: normal; font-style: normal; color:#010101;">
+                                                                                            &copy; 2020 
+                                                                                            <a href="<?php echo home_url();?>" title="Rawbought" style="color:#010101;text-decoration:none">Rawbought</a>. All Rights Reserved <br>
+                                                                                            <a href="'.get_permalink(get_page_by_path('terms-and-conditions')).'" style="color:#010101">Terms & Conditions&nbsp;</a><span>|</span>
+                                                                                            <a href="'.get_permalink(get_page_by_path('faq')).'" style="color:#010101">FAQ</a>
+                                                                                        </p>
                                                                                     </td>
                                                                                 </tr>
                                                                                     </table>

@@ -413,7 +413,7 @@ if(!email_exists($email)){
                                                                                         <tr>
                                                                                             <td style="font-family:Maison Neue,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;font-size: 16px; line-height: 24px; font-weight: normal; font-style: normal;color:#010101">
                                                                                                 <p style="font-family:Maison Neue,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;font-size: 16px; line-height: 24px; font-weight: normal; font-style: normal;color:#010101">
-                                                                                                    For any other queries, pls contact us at <a href="mailto:admin@rawbought.com" style="color:#010101;text-decoration:underline;">admin@rawbought.com</a> or WhatsApp at +65 8725 6066.
+                                                                                                    For any other queries, pls contact us at <a href="mailto:admin@rawbought.com" style="color:#010101;text-decoration:underline;">admin@rawbought.com</a> or WhatsApp at <a href="https://api.whatsapp.com/send?phone=+6587256066" style="color:#010101;text-decoration:none">+65 8725 6066</a>.
                                                                                                 </p> 
                                                                                             </td>
                                                                                         </tr>
@@ -462,7 +462,7 @@ if(!email_exists($email)){
                                                                                                     <tr>
                                                                                                         <td style="font-family:Maison Neue,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;font-size: 13px; line-height: 18px; font-weight: normal; font-style: normal; color:#010101; text-align: center;">
                                                                                                             <p style="font-family:Maison Neue,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;font-size: 13px; line-height: 18px; font-weight: normal; font-style: normal; color:#010101;">
-                                                                                                                &copy; 2020 <a href="" title="Rawbought" style="color:#010101;text-decoration:none;">Rawbought</a>. All Rights Reserved <br>
+                                                                                                                &copy; 2020 <a href="<?php echo home_url();?>" title="Rawbought" style="color:#010101;text-decoration:none;">Rawbought</a>. All Rights Reserved <br>
                                                                                                                 <a href="'.get_permalink(get_page_by_path('terms-and-conditions')).'" style="color:#010101">Terms & Conditions&nbsp;</a><span>|</span>
                                                                                                                 <a href="'.get_permalink(get_page_by_path('faq')).'" style="color:#010101">FAQ</a>
                                                                                                             </p> 
