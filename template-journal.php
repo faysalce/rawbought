@@ -16,8 +16,8 @@ get_header();
                 <div class="jumbotron-legend">
                     <h1 class="jumbotron-title h2"><?php echo get_the_title(); ?></h1>
                 </div>
-                <div class="jumbotron-navwrap journal-navwrapper">
-                    <ul class="nav-journal d-none">
+                <div class="jumbotron-navwrap journal-navwrapper d-none">
+                    <ul class="nav-journal ">
                         <?php
 
                         $postCategorys = get_categories();
@@ -74,9 +74,9 @@ get_header();
                                         <img src="<?php echo $image_src; ?>" alt="">
                                     </div>
                                 </div>
-                                <div class="post-content d-none">
+                                <div class="post-content ">
                                     <h6 class="post-title"><?php echo $post->post_title; ?></h6>
-                                    <div class="post-text">
+                                    <div class="post-text d-none">
                                         <?php echo substrwords(get_the_excerpt(), 50, ''); ?>...</div>
                                 </div>
                                 <div class="post-footer d-none">
