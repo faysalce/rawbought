@@ -11,6 +11,7 @@ add_filter('ot_show_pages', '__return_false');
 add_filter('ot_show_new_layout', '__return_false');
 add_filter('ot_theme_mode', '__return_true');
 require_once get_template_directory() . '/bootstrap-nav.php';
+include_once('includes/meta-boxes.php');
 
 include_once( 'includes/theme-options.php' );
 //include_once( 'includes/metabox.php' );
