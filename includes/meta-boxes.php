@@ -11,7 +11,7 @@ function custom_meta_boxes() {
       
       array(
         'label'       => __( 'Delivery & Returns', 'theme-text-domain' ),
-        'id'          => 'delivery_returns',
+        'id'          => 'return_delivery',
         'type'        => 'textarea',
         'desc'        => __( '', 'theme-text-domain' )
       )
