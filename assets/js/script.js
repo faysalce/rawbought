@@ -556,7 +556,8 @@ function heroSlider() {
 			arrows: false,
 			infinite: true,
 		    autoplay: true,
-			speed: 300,
+		    autoplaySpeed: 8000,
+			speed: 1000,
 			slidesToShow: 1,
 			pauseOnHover: false
 		});
