@@ -73,11 +73,11 @@ do_action('woocommerce_email_header', $email_heading, $email); ?>
                                                                     <td width="20" style="width:20px"></td>
                                                                     <td>
                                                                         <table width="100" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:100%">
-                                                                            <!-- TR FOR TABLE INNER SPACEING -->
+                                                                            
                                                                             <tr>
                                                                                 <td height="20" style="height:20px"></td>
                                                                             </tr>
-                                                                            <!-- TR FOR TABLE INNER SPACEING -->
+                                                                            
 
                                                                             <tr>
                                                                                 <td style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size:16px;line-height:24px; font-weight:normal; font-style:normal;color:#010101">
@@ -366,7 +366,7 @@ do_action('woocommerce_email_header', $email_heading, $email); ?>
                                                                                 </td>
                                                                             </tr>
 
-                                                                            <!-- TR FOR TABLE INNER SPACEING -->
+                                                                            
                                                                             <tr>
                                                                                 <td height="20" style="height:20px"></td>
                                                                             </tr>
@@ -415,10 +415,10 @@ do_action('woocommerce_email_header', $email_heading, $email); ?>
                                                                                         <tr>
                                                                                             <td style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 13px; line-height: 18px; font-weight: normal; font-style: normal; color:#010101; text-align: center;">
                                                                                                 <p style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 13px; line-height: 18px; font-weight: normal; font-style: normal; color:#010101;">
-                                                                                                    &copy; 2020 Rawbought. All Rights Reserved <br>
-                                                                                                    <a href="<?php echo get_permalink(get_page_by_path('privacy-policy')); ?>" style="color:#010101">Privacy Policy&nbsp;</a><span>/</span>
-                                                                                                    <a href="<?php echo get_permalink(get_page_by_path('contact')); ?>" style="color:#010101">Contact us&nbsp;</a><span>/</span>
-                                                                                                    <a href="<?php echo get_permalink(get_page_by_path('email-preferance')); ?>" style="color:#010101">Email Preferences&nbsp;</a>
+                                                                                                    &copy; 2020 
+                                                                                                    <a href="<?php echo home_url();?>" title="Rawbought" style="color:#010101;text-decoration:none">Rawbought</a>. All Rights Reserved <br>
+                                                                                                    <a href="'.get_permalink(get_page_by_path('terms-and-conditions')).'" style="color:#010101">Terms & Conditions&nbsp;</a><span>|</span>
+                                                                                                    <a href="'.get_permalink(get_page_by_path('faq')).'" style="color:#010101">FAQ</a>
                                                                                                 </p>
                                                                                             </td>
                                                                                         </tr>
