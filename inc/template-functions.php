@@ -1912,7 +1912,11 @@ function return_delivery() {
     $return_delivery = get_post_meta($post->ID,'return_delivery',true);
     $content   = $return_delivery ;
 $editor_id = 'return_delivery';
-$settings  = array( 'media_buttons' => false, 'textarea_name' => 'return_delivery' );
+$settings  = array( 'media_buttons' => false, 'textarea_name' => 'return_delivery','tinymce'       => array(
+    'toolbar1'      => 'bold,italic,underline,separator,alignleft,aligncenter,alignright,separator,link,unlink,undo,redo',
+    'toolbar2'      => '',
+    'toolbar3'      => '',
+) );
  ?>
   <p><strong>Delivery & Return</strong></p>
  <?php
