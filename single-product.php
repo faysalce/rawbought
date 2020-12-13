@@ -241,7 +241,7 @@ while (have_posts()) :
                                     </div>
                                     <div class="vp-single-info-bottom">
 
-	
+	<?php echo do_shortcode('[custom_product_tabs]');?>
                                         <div class="accordion product-accordion" id="productAccordion">
                                             <div class="card">
                                                 <div class="card-header" id="headingOne">
