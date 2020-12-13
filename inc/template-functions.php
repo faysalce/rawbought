@@ -1934,3 +1934,21 @@ function save_fields_values_for_job_apply() {
 
     update_post_meta($post->ID, "product_return_delivery", $_POST["product_return_delivery"]);
 }
+
+
+add_filter( 'woocommerce_package_rates', 'businessbloomer_hide_free_shipping_for_shipping_class', 10, 2 );
+   
+function businessbloomer_hide_free_shipping_for_shipping_class( $rates, $package ) {
+   $shipping_class_target = 15; // shipping class ID (to find it, see screenshot below)
+   $in_cart = false;
+   foreach ( WC()->cart->get_cart_contents() as $key => $values ) {
+      if ( $values[ 'data' ]->get_shipping_class_id() == $shipping_class_target ) {
+         $in_cart = true;
+         break;
+      } 
+   }
+   if ( $in_cart ) {
+      unset( $rates['free_shipping:8'] ); // shipping method with ID (to find it, see screenshot below)
+   }
+   return $rates;
+}
