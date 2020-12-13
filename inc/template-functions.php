@@ -1903,7 +1903,7 @@ function nl2p($string, $line_breaks = true, $xml = true) {
     add_action("admin_init", "rawbought_meta_add");
 
 function rawbought_meta_add() {
-    add_meta_box("return_delivery", "Delivery & Return", "return_delivery", "product", "normal", "high");
+    add_meta_box("return_delivery", "Delivery & Return", "return_delivery", "product", "normal", "normal");
 }
 
 function return_delivery() {
@@ -1917,13 +1917,21 @@ $settings  = array( 'media_buttons' => false, 'textarea_name' => 'return_deliver
     'toolbar3'      => '',
 ) );
  ?>
-  <p><strong>Delivery & Return</strong></p>
  <?php
-wp_editor( $content, $editor_id, $settings );
-    ?>
 
 
-    <?php
+   
+?>
+<div class='inside'>
+	<h3><?php _e( 'Delivery & Return', 'food_example_plugin' ); ?></h3>
+	<p>
+        <!-- <input type="text" name="carbohydrates" value="<?php //echo $current_carbohydrates; ?>" />  -->
+       <?php  wp_editor( $content, $editor_id, $settings ); ?>
+
+	</p>
+</div>
+<?php
+   
 }
 
 add_action('save_post', 'save_fields_values_for_job_apply');
