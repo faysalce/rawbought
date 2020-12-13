@@ -1919,9 +1919,12 @@ $settings  = array( 'media_buttons' => false, 'textarea_name' => 'product_return
  ?>
  
 <div class='inside'>
-	<h3><?php _e( 'Delivery & Return', 'food_example_plugin' ); ?></h3>
 	<p>
-		<textarea name="product_return_delivery" ><?php echo $return_delivery; ?></textarea>
+        <?php 
+          wp_editor( $content, 'product_return_delivery',$settings  );
+
+        ?>
+		<!-- <textarea name="product_return_delivery" ><?php //echo $return_delivery; ?></textarea> -->
 	</p>
 </div>
 <?php
