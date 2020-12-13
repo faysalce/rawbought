@@ -129,7 +129,7 @@ e.preventDefault();
 				if (data.status == 1) {
 					window.location.href = ajax_login_object.redirecturl+'/my-account';
 				} else if(data.status == 0){
-					$('.login-status-msg').html('<div class="alert alert-site alert-dismissible fade show text-center" role="alert"><div class="text-danger">Incorrect email or password.</div><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>').fadeOut('slow');
+					$('.login-status-msg').html('<div class="alert alert-site alert-dismissible fade show text-center" role="alert"><div class="text-danger">Incorrect email or password.</div><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 				}
 			}, error: function (request, status, error) {
 				username.attr("disabled", false);
