@@ -1898,34 +1898,3 @@ function nl2p($string, $line_breaks = true, $xml = true) {
         array("</p>\n<p>", "</p>\n<p>", '$1<br'.($xml == true ? ' /' : '').'>$2'),
         trim($string)).'</p>'; 
     }
-
-
-    add_action("admin_init", "rawbought_meta_add");
-
-function rawbought_meta_add() {
-    add_meta_box("return_delivery", "Delivery & Return", "return_delivery", "product", "normal", "high");
-}
-
-function return_delivery() {
-    global $post;
-    $return_delivery = get_post_meta($post->ID,'return_delivery',true);
-    $content   = $return_delivery ;
-$editor_id = 'return_delivery';
-$settings  = array( 'media_buttons' => false, 'textarea_name' => 'return_delivery' );
- ?>
-  <p><strong>Delivery & Return</strong></p>
- <?php
-wp_editor( $content, $editor_id, $settings );
-    ?>
-
-
-    <?php
-}
-
-add_action('save_post', 'save_fields_values_for_job_apply');
-
-function save_fields_values_for_job_apply() {
-    global $post;
-
-    update_post_meta($post->ID, "return_delivery", $_POST["return_delivery"]);
-}
