@@ -539,13 +539,15 @@ e.preventDefault();
 
 function heroSlider() {
 	var $heroSlider = $('.hero-slider');
-	if ($heroSlider.length > 0) {
+	if($heroSlider.length > 0) {
 		$('.hero-slider').slick({
-			autoplay: true,
-			autoplaySpeed: 4000,
-			lazyLoad: 'ondemand',
-			arrows: false,
 			dots: true,
+			arrows: false,
+			infinite: true,
+		    autoplay: true,
+			speed: 300,
+			slidesToShow: 1,
+			pauseOnHover: false
 		});
 	}
 }
