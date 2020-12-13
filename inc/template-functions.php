@@ -1904,31 +1904,25 @@ function nl2p($string, $line_breaks = true, $xml = true) {
     add_action("admin_init", "rawbought_meta_add");
 
 function rawbought_meta_add() {
-    add_meta_box("return_delivery", "Delivery & Return", "return_delivery", "product", "normal", "high");
+    add_meta_box("return_delivery-meta", "Delivery & Return", "return_delivery", "product", "normal", "normal");
 }
 
 function return_delivery() {
     global $post;
-    $return_delivery = get_post_meta($post->ID,'return_delivery',true);
+    $return_delivery = get_post_meta($post->ID,'product_return_delivery',true);
     $content   = $return_delivery ;
-$editor_id = 'return_delivery';
-$settings  = array( 'media_buttons' => false, 'textarea_name' => 'return_delivery','tinymce'       => array(
+$editor_id = 'product_return_delivery';
+$settings  = array( 'media_buttons' => false, 'textarea_name' => 'product_return_delivery','tinymce'       => array(
     'toolbar1'      => 'bold,italic,underline,separator,alignleft,aligncenter,alignright,separator,link,unlink,undo,redo',
     'toolbar2'      => '',
     'toolbar3'      => '',
 ) );
  ?>
- <?php
-
-
-   
-?>
+ 
 <div class='inside'>
 	<h3><?php _e( 'Delivery & Return', 'food_example_plugin' ); ?></h3>
 	<p>
-        <!-- <input type="text" name="carbohydrates" value="<?php //echo $current_carbohydrates; ?>" />  -->
-       <?php  wp_editor( $content, $editor_id, $settings ); ?>
-
+		<textarea name="product_return_delivery" ><?php echo $return_delivery; ?></textarea>
 	</p>
 </div>
 <?php
@@ -1940,5 +1934,5 @@ add_action('save_post', 'save_fields_values_for_job_apply');
 function save_fields_values_for_job_apply() {
     global $post;
 
-    update_post_meta($post->ID, "return_delivery", $_POST["return_delivery"]);
+    update_post_meta($post->ID, "product_return_delivery", $_POST["product_return_delivery"]);
 }
