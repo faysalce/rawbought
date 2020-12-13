@@ -347,9 +347,9 @@ if(!email_exists($email)){
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0" background="http://webmamu.com/static/email/assets/img/bg_account_activation.jpg" style="width:100%;max-width:100%;background: url("http://webmamu.com/static/email/assets/img/bg_account_activation.jpg");background-repeat:no-repeat;background-size:cover;background-position:center;">
+                                                                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:100%;">
                                                                             <tr>
-                                                                                <td>
+                                                                                <td style="background-image: url(http://webmamu.com/static/email/assets/img/bg_account_activation.jpg);background-repeat:no-repeat;background-position:top center;background-size:cover;">
                                                                                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:100%;">
                                                                                         <tr><td height="70" colspan="3" style="height:70px"></td></tr>
                                                                                         <tr>
