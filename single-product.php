@@ -264,7 +264,7 @@ while (have_posts()) :
                                                         // echo "<pre>";
                                                         // echo $post->post_content;
                                                         // echo "</pre>";
-                                                        nl2p($post->post_content);
+                                                     echo   nl2p($post->post_content);
                                                         // echo  apply_filters( 'the_content', $product->get_description() );
                                                         // echo  get_details_desc();
                                                         // the_content()
