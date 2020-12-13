@@ -127,9 +127,9 @@ e.preventDefault();
 				$('form#checkout-login button.checkout-login-btn').attr("disabled", false);
 				$('form#checkout-login button.checkout-login-btn').html('Sign In');
 				if (data.status == 1) {
-					window.location.href = '/my-account';
-				} else {
-					$('.login-status').html(data.message).fadeOut('slow');
+					window.location.href = ajax_login_object.redirecturl+'/my-account';
+				} else if(data.status == 0){
+					$('.login-status-msg').html('<div class="alert alert-site alert-dismissible fade show text-center" role="alert"><div class="text-danger">Incorrect email or password.</div><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>').fadeOut('slow');
 				}
 			}, error: function (request, status, error) {
 				username.attr("disabled", false);
@@ -183,6 +183,10 @@ e.preventDefault();
 			valid = false;
 		}
 		if (valid) {
+			fname.removeClass('field-invalid');
+			lname.removeClass('field-invalid');
+			email.removeClass('field-invalid');
+			pass.removeClass('field-invalid');
 			$('form#checkout-signup button.signup-btn').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="sr-only">Account creating...</span>		');
 			$('form#checkout-signup button.signup-btn').attr("disabled", true);
 			fname.attr("disabled", true);
@@ -216,7 +220,7 @@ e.preventDefault();
 					$('form#checkout-signup button.signup-btn').html('Create an account');
 
 					if (data.status == 1) {
-						window.location.href = '/my-account';
+						window.location.href = ajax_login_object.redirecturl+'/my-account';
 					} else {
 						$('.signup-status').html(data.message).fadeOut('slow');
 					}
