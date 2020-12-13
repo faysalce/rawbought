@@ -468,9 +468,9 @@
         visibility: hidden;
         display: none !important;
     }
-}
-.woocommerce-Price-amount {
-    color: $color-price;
+    .woocommerce-Price-amount {
+        color: $color-price;
+    }
 }
 .vp-single-info-wrap {
     .vp-single-info-top {
@@ -595,6 +595,9 @@
     }
     .product-single-information-price {
         margin-top: 0;
+    }
+    .woocommerce-Price-amount {
+        color: $color-price;
     }
     .product-variants-option,
     .product-accordion,

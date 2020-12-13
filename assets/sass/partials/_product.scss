@@ -54,6 +54,9 @@
 			transition: all 0.25s;
 		}
 	}
+	.woocommerce-Price-amount {
+	    color: $color-price;
+	}
 	&:hover {
 		.product-image {
 			.product-static-img {
