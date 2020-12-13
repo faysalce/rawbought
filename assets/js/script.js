@@ -18,6 +18,7 @@ $(document).ready(function () {
 	Rawbought_ajaxQuickview();
 	init__footerCollapse();
 	Rawbought_Quantity();
+	Rawbought_QuantityMini();
 	init__priceRange();
 	init__accordionGutenberg();
 
@@ -621,6 +622,72 @@ function updateCartItems(key, num) {
 
 
 
+}
+
+function Rawbought_QuantityMini() {
+	var incrementPlus;
+	var incrementMinus;
+
+	var buttonPlus = $(".btn-plus-mini");
+	var buttonMinus = $(".btn-minus-mini");
+
+	var incrementPlus = $(document).on("click", '.btn-plus-mini', function () {
+		$('.full-page-loader').addClass('optional-overlay');
+		var $n = $(this)
+			.closest(".product-quantity-default")
+			.find(".input-quantity");
+		$n.val(Number($n.val()) + 1);
+		$n.siblings('.main-qt-wrp').find('.qty').val($n.val()).trigger('change');
+
+		var cart_key = $n.attr('cart_key');
+
+		//console.log($n.siblings('.main-qt-wrp').find('.qty').val());
+		updateCartItems(cart_key, $n.val());
+		$('.full-page-loader').removeClass('optional-overlay');
+
+		timeout = setTimeout(function () {
+
+			jQuery("[name='update_cart']").prop("disabled", false);
+			jQuery('[name="update_cart"]').trigger('click');
+		}, 1000);
+		//$( ".update_cart_btn" ).trigger( "click" );
+
+		// var qty = $n.val();
+		// var cart_item_key = $(this).attr("cart-item-key");
+
+
+
+
+
+
+		//	$( document.body ).trigger( 'updated_cart_totals' );
+
+	});
+
+	var incrementMinus = $(document).on("click", '.btn-minus-mini', function () {
+		
+		$('.full-page-loader').addClass('optional-overlay');
+		var $n = $(this)
+			.closest(".product-quantity-default")
+			.find(".input-quantity");
+		var amount = Number($n.val());
+		if (amount > 0) {
+			$n.val(amount - 1);
+			$n.siblings('.main-qt-wrp').find('.qty').val($n.val()).trigger('change');
+
+			var cart_key = $n.attr('cart_key');
+
+			//	console.log($n.siblings('.main-qt-wrp').find('.qty').val());
+			updateCartItems(cart_key, $n.val());
+			$('.full-page-loader').removeClass('optional-overlay');
+
+			timeout = setTimeout(function () {
+				jQuery("[name='update_cart']").prop("disabled", false);
+				jQuery('[name="update_cart"]').trigger('click');
+			}, 500);
+
+		}
+	});
 }
 
 function Rawbought_Quantity() {

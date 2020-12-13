@@ -109,11 +109,11 @@ if(isset($cart_item['variation']['attribute_pa_size'])){
 							<div class="cart-item-quantity-prices">
 								<div class="input-group product-quantity-default cart-quantity-small cart-quantity-default">
 									<div class="input-group-prepend">
-										<button type="button" cart_key="<?php echo $cart_item_key;?>" class="btn btn-quantity btn-minus"><i class="ti-minus"></i></button>
+										<button type="button" cart_key="<?php echo $cart_item_key;?>" class="btn btn-quantity btn-minus-mini"><i class="ti-minus"></i></button>
 									</div>
 									<input type="text" name="quantity" cart_key="<?php echo $cart_item_key;?>" class="form-control input-quantity" value="<?php echo $cart_item['quantity']; ?>">
 									<div class="input-group-append">
-										<button type="button" cart_key="<?php echo $cart_item_key;?>" class="btn btn-quantity btn-plus"><i class="ti-plus"></i></button>
+										<button type="button" cart_key="<?php echo $cart_item_key;?>" class="btn btn-quantity btn-plus-mini"><i class="ti-plus"></i></button>
 									</div>
 								</div>
 								<div class="cart-item-price">
