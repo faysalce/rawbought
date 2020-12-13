@@ -13,3 +13,15 @@
 .woocommerce-warning {
 	@extend .woocommerce-info;
 }
+.alert-site {
+	background-color: $bg-light;
+	border: 1px solid $dark;
+	border-radius: 0;
+	color: $color-text;
+	.close {
+		font-weight: 300;
+		&:focus {
+			outline: 0;
+		}
+	}
+}

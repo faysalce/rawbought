@@ -403,8 +403,6 @@ do_action('woocommerce_email_header', $email_heading, $email); ?>
                                                                                                         <td width="32" style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 16px; line-height: 24px; font-weight: normal; font-style: normal; color:#010101; text-align: center;max-width: 22px;">
                                                                                                             <a href="https://www.instagram.com/rawboughtshop/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram-brands.png" alt="instagram" width="22" style="max-width:22px;"></a>
                                                                                                         </td>
-                                                                                                        <td width="15" style="width:15px;"></td>
-
                                                                                                     </tr>
                                                                                                 </table>
                                                                                             </td>
