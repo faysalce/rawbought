@@ -1912,7 +1912,9 @@ function return_delivery() {
     $content   = $return_delivery ;
 $editor_id = 'return_delivery';
 $settings  = array( 'media_buttons' => false, 'textarea_name' => 'return_delivery' );
- 
+ ?>
+  <p><strong>Delivery & Return</strong></p>
+ <?php
 wp_editor( $content, $editor_id, $settings );
     ?>
 
