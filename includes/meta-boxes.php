@@ -1,23 +1,48 @@
-<?php 
-add_action( 'admin_init', 'custom_meta_boxes' ); 
-function custom_meta_boxes() { 
-    $my_meta_box = array( 'id' => 'my_ot_meta_box',
-    'title'       => __( 'Product Options', 'theme-text-domain' ),
-    'desc'        => '',
-    'pages'       => array( 'product' ),
-    'context'     => 'normal',
-    'priority'    => 'high',
-    'fields'      => array(
-      
-      array(
-        'label'       => __( 'Delivery & Returns', 'theme-text-domain' ),
-        'id'          => 'return_delivery',
-        'type'        => 'textarea',
-        'desc'        => __( '', 'theme-text-domain' )
-      )
-    )
-  );
-  if ( function_exists( 'ot_register_meta_box' ) )
-    ot_register_meta_box( $my_meta_box );
- 
+<?php
+
+/**
+ * Initialize the meta boxes before anything else.
+ */
+/**
+ * Builds the Meta Boxes.
+ */
+add_action('admin_init', '_custom_meta_boxes');
+
+function _custom_meta_boxes() {
+
+    $meta_args_array = array(
+
+        array(
+            'id' => 'return_delivery',
+            'title' => 'Delivery and Return',
+            'pages' => array('product'),
+            'context' => 'normal',
+            'priority' => 'high',
+            'fields' => array(
+                array(
+                    'id' => 'return_delivery',
+                    'label' => 'Delivery and Return',
+                    'desc' => '',
+                    'std' => '',
+                    'type' => 'textarea',
+
+
+                    )
+                )
+            )
+
+
+                
+
+
+
+
+
+                );
+
+
+/* load each metabox */
+foreach ($meta_args_array as $meta_args) {
+    ot_register_meta_box($meta_args);
+}
 }
