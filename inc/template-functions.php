@@ -1904,7 +1904,7 @@ function nl2p($string, $line_breaks = true, $xml = true) {
     add_action("admin_init", "rawbought_meta_add");
 
 function rawbought_meta_add() {
-    add_meta_box("return_delivery", "Delivery & Return", "return_delivery", "product", "normal", "normal");
+    add_meta_box("return_delivery", "Delivery & Return", "return_delivery", "product", "normal", "high");
 }
 
 function return_delivery() {
