@@ -1886,45 +1886,15 @@ function bbloomer_grey_out_variations_out_of_stock( $is_active, $variation ) {
     if ( ! $variation->is_in_stock() ) return false;
     return $is_active;
 }
-function yikes_custom_product_tabs_shortcode( $args ) {
-	global $post;
-	
-	// Define our default values
-	$defaults = array(
-		'product_id' => $post->ID,
-		'tab_number' => 'all',
-	);
-
-	// Let the user-defined values override our defaults
-	$values = is_array( $args ) ? array_merge( $defaults, $args ) : $defaults;
-
-	// Make sure we have a product ID and that the product ID is for a product 
-	if ( empty( $values['product_id'] ) || ! empty( $values['product_id'] ) && get_post_type( $values['product_id'] ) !== 'product' ) {
-		return;
-	}
-
-	// Fetch our tabs
-	$tabs = get_post_meta( $values['product_id'], 'yikes_woo_products_tabs', true );
-
-	// Get just the specified tab. (minus tab number by one so it starts at 0)
-	$tabs = absint( $values['tab_number'] ) < 1 ? $tabs : ( isset( $tabs[ absint( $values['tab_number'] ) - 1 ] ) ? array( $tabs[ absint( $values['tab_number'] ) - 1 ] ) : array() );
-
-	if ( empty( $tabs ) ) {
-		return;
-	}
-
-	// Debug statement to show all tab data. Feel free to remove.
-	// echo '<pre>'; var_dump( $tabs ); echo '</pre>';
-
-	$html = '';
-
-	// Loop through the tabs and display each one
-	foreach( $tabs as $tab ) {
-		$html .= '<p>' . $tab['title'] . '</p>';
-		$html .= '<p>' . $tab['content'] . '</p>';
-	}
-
-	// Make sure to return your content, do not echo it.
-	return $html;
-}
-add_shortcode( 'custom_product_tabs', 'yikes_custom_product_tabs_shortcode' );
+function nl2p($string, $line_breaks = true, $xml = true) {
+    $string = str_replace(array('<p>', '</p>', '<br>', '<br />'), '', $string);
+    // It is conceivable that people might still want single line-breaks
+    // without breaking into a new paragraph.
+    if ($line_breaks == true)
+        return '<p>'.preg_replace(array("/([\n]{2,})/i", "/([^>])\n([^<])/i"), array("</p>\n<p>", '$1<br'.($xml == true ? ' /' : '').'>$2'), trim($string)).'</p>';
+    else 
+        return '<p>'.preg_replace(
+        array("/([\n]{2,})/i", "/([\r\n]{3,})/i","/([^>])\n([^<])/i"),
+        array("</p>\n<p>", "</p>\n<p>", '$1<br'.($xml == true ? ' /' : '').'>$2'),
+        trim($string)).'</p>'; 
+    }

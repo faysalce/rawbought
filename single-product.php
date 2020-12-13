@@ -241,9 +241,7 @@ while (have_posts()) :
                                     </div>
                                     <div class="vp-single-info-bottom">
 
-    <?php 
-    echo "Details";
-    echo do_shortcode('[custom_product_tabs]');?>
+	
                                         <div class="accordion product-accordion" id="productAccordion">
                                             <div class="card">
                                                 <div class="card-header" id="headingOne">
@@ -263,9 +261,10 @@ while (have_posts()) :
                                                         //    echo "<pre>";
                                                         //    print_r($post);
                                                         //    echo "</pre>";
-                                                        echo "<pre>";
-                                                        echo $post->post_content;
-                                                        echo "</pre>";
+                                                        // echo "<pre>";
+                                                        // echo $post->post_content;
+                                                        // echo "</pre>";
+                                                        nl2p($post->post_content);
                                                         // echo  apply_filters( 'the_content', $product->get_description() );
                                                         // echo  get_details_desc();
                                                         // the_content()
