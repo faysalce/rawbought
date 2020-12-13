@@ -462,6 +462,20 @@
 	.modal-title {
 		margin-bottom: 1rem;
 	}
+	.modal-closewrap {
+		display: block !important;
+		position: absolute !important;
+		top: 1rem;
+		right: 1rem;
+		margin-bottom: 0 !important;
+		width: 32px;
+		z-index: 102;
+	}
+	.close {
+		&:hover, &:focus {
+			outline: 0;
+		}
+	}
 }
 
 
@@ -475,7 +489,23 @@
 	}
 	.modal-checkout {
 		.guest-wrap {
-			padding-top: 7.25rem;
+			padding-top: 0;
+		}
+		.guest-chckout-text {
+			height: 100px;
+			max-width: 210px;
+			margin-left: auto;
+			margin-right: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+		.guest-checkout-continue {
+			height: 82px;
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
 		}	
 	}
 }
