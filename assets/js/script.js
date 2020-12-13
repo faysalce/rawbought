@@ -636,10 +636,13 @@ function Rawbought_QuantityMini() {
 		var $n = $(this)
 			.closest(".product-quantity-default")
 			.find(".input-quantity");
-		$n.val(Number($n.val()) + 1);
+			var cart_key = $n.attr('cart_key');
+		//$n.val(Number($n.val()) + 1);
+		$( 'input[cart_key="'+cart_key+'"]' ).val(Number($n.val()) + 1);
+		
 		$n.siblings('.main-qt-wrp').find('.qty').val($n.val()).trigger('change');
 
-		var cart_key = $n.attr('cart_key');
+		
 
 		//console.log($n.siblings('.main-qt-wrp').find('.qty').val());
 		updateCartItems(cart_key, $n.val());
@@ -672,10 +675,12 @@ function Rawbought_QuantityMini() {
 			.find(".input-quantity");
 		var amount = Number($n.val());
 		if (amount > 0) {
-			$n.val(amount - 1);
+			var cart_key = $n.attr('cart_key');
+			$( 'input[cart_key="'+cart_key+'"]' ).val(Number(amount - 1);
+
+			//$n.val(amount - 1);
 			$n.siblings('.main-qt-wrp').find('.qty').val($n.val()).trigger('change');
 
-			var cart_key = $n.attr('cart_key');
 
 			//	console.log($n.siblings('.main-qt-wrp').find('.qty').val());
 			updateCartItems(cart_key, $n.val());
