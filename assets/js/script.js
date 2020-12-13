@@ -177,8 +177,9 @@ e.preventDefault();
 		var lname = $('form#checkout-signup #lname');
 		var email = $('form#checkout-signup #signup-email');
 		var pass = $('form#checkout-signup #signup-password');
+		console.log('password length: '+ pass.length);
 		var valid = true;
-		if (fname.val() == '' || lname.val() == '' || email.val() == '' || pass.val() == '' || !emailCheck.test(email.val())   ) {
+		if (fname.val() == '' || lname.val() == '' || email.val() == '' ||  pass.val().length  < 5 || pass.val().length  > 20 || pass.val() == '' || !emailCheck.test(email.val())   ) {
 			valid = false;
 		}
 		if (valid) {
@@ -251,6 +252,12 @@ e.preventDefault();
 
 			}
 			if (pass.val() == '') {
+				pass.addClass('field-invalid');
+			} else {
+				pass.removeClass('field-invalid');
+
+			}
+			if (pass.val().length <5 || pass.val().length > 20) {
 				pass.addClass('field-invalid');
 			} else {
 				pass.removeClass('field-invalid');

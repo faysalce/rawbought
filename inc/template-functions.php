@@ -1912,11 +1912,7 @@ function return_delivery() {
     $return_delivery = get_post_meta($post->ID,'product_return_delivery',true);
     $content   = $return_delivery ;
 $editor_id = 'product_return_delivery';
-$settings  = array( 'media_buttons' => false, 'textarea_name' => 'product_return_delivery','tinymce'       => array(
-    'toolbar1'      => 'bold,italic,underline,separator,alignleft,aligncenter,alignright,separator,link,unlink,undo,redo',
-    'toolbar2'      => '',
-    'toolbar3'      => '',
-) );
+$settings  = array( 'media_buttons' => false, 'textarea_name' => 'product_return_delivery' );
  ?>
  
 <div class='inside'>
