@@ -676,7 +676,7 @@ function Rawbought_QuantityMini() {
 		var amount = Number($n.val());
 		if (amount > 0) {
 			var cart_key = $n.attr('cart_key');
-			$( 'input[cart_key="'+cart_key+'"]' ).val(Number(amount - 1);
+			$( 'input[cart_key="'+cart_key+'"]' ).val(Number(amount - 1));
 
 			//$n.val(amount - 1);
 			$n.siblings('.main-qt-wrp').find('.qty').val($n.val()).trigger('change');
