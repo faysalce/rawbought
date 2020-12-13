@@ -642,6 +642,8 @@ function Rawbought_Quantity() {
 
 		//console.log($n.siblings('.main-qt-wrp').find('.qty').val());
 		updateCartItems(cart_key, $n.val());
+		$('.full-page-loader').removeClass('optional-overlay');
+
 		timeout = setTimeout(function () {
 
 			jQuery("[name='update_cart']").prop("disabled", false);
@@ -676,6 +678,8 @@ function Rawbought_Quantity() {
 
 			//	console.log($n.siblings('.main-qt-wrp').find('.qty').val());
 			updateCartItems(cart_key, $n.val());
+			$('.full-page-loader').removeClass('optional-overlay');
+
 			timeout = setTimeout(function () {
 				jQuery("[name='update_cart']").prop("disabled", false);
 				jQuery('[name="update_cart"]').trigger('click');
