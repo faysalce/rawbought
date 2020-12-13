@@ -11,7 +11,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h5 class="modal-title text-uppercase text-center">Sign In</h5>
-                            <form action="">
+                            <div class="login-status-msg">
+                                    
+                                </div>
+
+                            <form action="" id="checkout-login">
                                 <div class="form-group static-group">
                                     <input type="email" id="checkout-username" name="username" class="form-control username floating-field" placeholder="Enter email address" required="required">
                                 </div>

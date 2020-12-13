@@ -94,7 +94,6 @@ e.preventDefault();
 
 		var emailCheck = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i;
 
-		console.log('signup');
 		var username = $('form#checkout-login #checkout-username');
 		var password = $('form#checkout-login #checkout-password');
 		var valid=true;
@@ -221,8 +220,8 @@ e.preventDefault();
 
 					if (data.status == 1) {
 						window.location.href = ajax_login_object.redirecturl+'/my-account';
-					} else {
-						$('.signup-status').html(data.message).fadeOut('slow');
+					} else if(data.status == 0) {
+						$('.signup-status-msg').html('<div class="alert alert-site alert-dismissible fade show text-center" role="alert"><div class="text-danger">There is already an account with this email address. If you are sure that it is your email address, <a href="/my-account/lost-password">click here </a> to get your password and access your account.</div><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 					}
 				}, error: function (request, status, error) {
 					$('form#checkout-signup button.signup-btn').attr("disabled", false);
