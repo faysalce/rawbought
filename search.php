@@ -98,7 +98,7 @@ get_header();
 
                     }
             
-            
+                    $count = 0;
             
             if ( have_posts() ) : ?>
                 <?php
@@ -107,7 +107,7 @@ get_header();
 
                         $product = wc_get_product(get_the_ID());
                         $product_id = get_the_ID();
-                        $count = 0;
+                        
 
                         $args2['post_parent'] = $product_id;
 
