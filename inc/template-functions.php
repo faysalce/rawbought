@@ -1742,7 +1742,7 @@ $apiPayload=array(
         "payment_type"=> "prepaid",
         "consignee_name"=> $order->shipping_first_name. ''.$order->shipping_last_name,
         "consignee_number" => $order->shipping_phone,
-        "consignee_country"=>'Singapore',
+        "consignee_country"=>$orderShippingCountry,
         "consignee_address"=> $order->get_formatted_shipping_address(),
         "consignee_postal"=> $order->shipping_postcode,
         "consignee_city"=> ucfirst(WC()->countries->countries[ $order->shipping_city]),
@@ -1762,7 +1762,7 @@ $apiPayload=array(
     
 );
 
-
+if(in_array($orderShippingCountry,$serviceList)){
      // API Callout to URL
 
      $url = ot_get_option('janio_api_url');
@@ -1789,7 +1789,7 @@ $apiPayload=array(
                  $order->add_order_note( __("Janieo Batch No : ".$vars['upload_batch_no']) );
 
        update_post_meta( $order_id, 'order_tracking_id', $vars['tracking_nos'] );
-
+    }
    
 
 }
