@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                             </div>  
-                            <div class="collapse-item">
+                            <div class="collapse-item d-none">
                                 <a class="link-collapse collapsed" data-toggle="collapse" href="#s_collapse_4" role="button" aria-expanded="true" aria-controls="s_collapse_4">
                                     Color
                                 </a>
