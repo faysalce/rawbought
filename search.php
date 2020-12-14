@@ -22,7 +22,9 @@ get_header();
 					/* translators: %s: search query. */
 					printf( esc_html__( '%s', 'rawbought' ), '<span>' . get_search_query() . '</span>' );
 					?></h1>
-                    
+                    <span class="jumbotron-label mt-3">
+                        <span><span class="total-count-top"> </span> results</span>
+                    </span>
                 </div>
                 <div class="products-filterbar products-filters">
                     <div class="d-flex align-items-center justify-content-between">
@@ -202,3 +204,10 @@ get_header();
 <?php
 
 get_footer();
+?>
+<script>
+    jQuery(document).ready(function($) {
+
+        $('.total-count-top').html($('.total_product_count').val());
+    });
+</script>
