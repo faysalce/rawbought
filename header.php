@@ -207,18 +207,3 @@ wp_nav_menu( array(
 
 	<?php get_template_part('template-parts/modal-size-guide'); ?>
 
-	<?php 
-	
-	if(is_home()){
-		if(isset($_GET['counter-hide']) && $_GET['counter-hide']=='yes'){
-			
-		}else{
-			get_template_part('template-parts/modal-count'); 
-		}
-	}
-	
-
-	
-	
-	
-	?>
