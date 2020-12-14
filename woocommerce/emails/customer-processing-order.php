@@ -99,7 +99,7 @@ do_action('woocommerce_email_header', $email_heading, $email); ?>
                                                                             <tr>
                                                                                 <td style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 16px; line-height: 24px; font-weight: normal; font-style: normal; color:#010101;">
                                                                                     <p style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 16px; line-height: 24px; font-weight: normal; font-style: normal; color:#010101;">
-                                                                                        Thank you for your order! We’re stoked to know that in a few days time, you’d be resting soundly with our Rawbought sleepwear! You can check your order status <a href="<?php echo $order->get_edit_order_url(); ?>" style="text-decoration:underline;">here</a>.
+                                                                                        Thank you for your order! We’re stoked to know that in a few days time, you’d be resting soundly with our Rawbought sleepwear! You can check your order status <a href="<?php echo $order->get_view_order_url(); ?>" style="text-decoration:underline;">here</a>.
                                                                                     </p>
                                                                                 </td>
                                                                             </tr>
@@ -417,8 +417,8 @@ do_action('woocommerce_email_header', $email_heading, $email); ?>
                                                                                                 <p style="font-family:'Maison Neue','Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;font-size: 13px; line-height: 18px; font-weight: normal; font-style: normal; color:#010101;">
                                                                                                     &copy; 2020 
                                                                                                     <a href="<?php echo home_url();?>" title="Rawbought" style="color:#010101;text-decoration:none">Rawbought</a>. All Rights Reserved <br>
-                                                                                                    <a href="'.get_permalink(get_page_by_path('terms-and-conditions')).'" style="color:#010101">Terms & Conditions&nbsp;</a><span>|</span>
-                                                                                                    <a href="'.get_permalink(get_page_by_path('faq')).'" style="color:#010101">FAQ</a>
+                                                                                                    <a href="<?php echo get_permalink(get_page_by_path('terms-and-conditions'));?>" style="color:#010101">Terms & Conditions&nbsp;</a><span>|</span>
+                                                                                                    <a href="<?php echo get_permalink(get_page_by_path('faq'));?>" style="color:#010101">FAQ</a>
                                                                                                 </p>
                                                                                             </td>
                                                                                         </tr>
