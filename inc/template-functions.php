@@ -1711,7 +1711,8 @@ $orderItems=array();
 
     }
     $orderShippingCountry=ucwords(strtolower(WC()->countries->countries[ $order->get_shipping_country() ]));
-$serviceList=array
+
+    $serviceList=array
 (
     "China" => 197,
     "Hong Kong" => 111,
