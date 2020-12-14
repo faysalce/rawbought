@@ -153,16 +153,16 @@ if(isset($cart_item['variation']['attribute_pa_size'])){
 												<div class="ci-qp-cell-label">Quantity</div>
 												<div class="input-group product-quantity-default cart-quantity-small cart-quantity-default">
 													<div class="input-group-prepend">
-														<button cart-item-key="<?php echo $cart_item_key; ?>" type="button" class="btn btn-quantity btn-minus"><i class="ti-minus"></i></button>
+														<button cart-item-key="<?php echo $cart_item_key; ?>" cart_key="<?php echo $cart_item_key;?>" type="button" class="btn btn-quantity btn-minus"><i class="ti-minus"></i></button>
 													</div>
 
 
-													<input type="text"  class="form-control input-quantity" value="<?php echo $cart_item['quantity']; ?>">
+													<input type="text"  cart_key="<?php echo $cart_item_key;?>" class="form-control input-quantity" value="<?php echo $cart_item['quantity']; ?>">
 
 
 
 													<div class="input-group-append">
-														<button type="button" cart-item-key="<?php echo $cart_item_key; ?>" class="btn btn-quantity btn-plus"><i class="ti-plus"></i></button>
+														<button type="button" cart_key="<?php echo $cart_item_key;?>" cart-item-key="<?php echo $cart_item_key; ?>" class="btn btn-quantity btn-plus"><i class="ti-plus"></i></button>
 													</div>
 
 													<span class="d-none main-qt-wrp">
