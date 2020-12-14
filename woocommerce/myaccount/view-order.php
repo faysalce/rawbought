@@ -127,7 +127,11 @@ $get_addresses = apply_filters(
 				<?php
 				foreach ($order_items as $item_id => $item) {
 					$product = $item->get_product();
-					$is_visible        = $product && $product->is_visible();
+if($product){
+
+	$is_visible        = $product && $product->is_visible();
+
+
 
 					$post_thumbnail_id = get_post_thumbnail_id($product->get_id());
 					$product_permalink = apply_filters('woocommerce_order_item_permalink', $is_visible ? $product->get_permalink($item) : '', $item, $order);
@@ -138,6 +142,10 @@ $get_addresses = apply_filters(
 					} else {
 						$image_src = get_template_directory_uri() . '/assets/images/product-placeholder.jpg';
 					}
+				}else{
+					$image_src = get_template_directory_uri() . '/assets/images/product-placeholder.jpg';
+
+				}
 				?>
 
 
