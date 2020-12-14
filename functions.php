@@ -208,7 +208,7 @@ function rawbought_scripts() {
 
 	
 	if(is_home()){
-		wp_enqueue_script( 'rawbought-home-sloder-js', get_template_directory_uri() . '/assets/js/home-slider.js', array('rawbought-xzoom-js'), _S_VERSION, true );
+		//wp_enqueue_script( 'rawbought-home-sloder-js', get_template_directory_uri() . '/assets/js/home-slider.js', array('rawbought-xzoom-js'), _S_VERSION, true );
 
 	}
 	wp_enqueue_script( 'rawbought-script-js', get_template_directory_uri() . '/assets/js/script.js', array('rawbought-xzoom-js'), _S_VERSION, true );
