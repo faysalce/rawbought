@@ -333,7 +333,7 @@
     <script>
         jQuery(document).ready(function ($) {
 
-            jQuery('#countdown-clock').countdown('2020/12/14 22:00', function(event) {
+            jQuery('#countdown-clock').countdown('2020/12/15 00:00', function(event) {
               var $this = jQuery(this).html(event.strftime(''
                 //+ '<div class="countdown-item"><span>%D</span> <span>Days</span></div> '
                 + '<div class="countdown-item"><span>%H</span> <span>Hours</span></div> '
