@@ -20,7 +20,7 @@
         .modal-comingsoon .hero-comingsoon {
             position: relative;
             background-color: #fff;
-            background-image: url('assets/images/bg_coming2.jpg');
+            background-image: url('<?php echo get_template_directory_uri();?>/assets/images/bg_coming2.jpg');
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -270,7 +270,7 @@
         }
         @media (max-width: 575.98px) {
             .modal-comingsoon .hero-comingsoon {
-                background-image: url('assets/images/bg_coming2_mobile.jpg') !important;
+                background-image: url('<?php echo get_template_directory_uri();?>/assets/images/bg_coming2_mobile.jpg') !important;
             }
             .modal-comingsoon .launching-date {
                 font-size: 1.75rem;
@@ -300,7 +300,7 @@
         }
     </style>
 
-<div id="modal-comingsoon" class="modal-comingsoon">
+<div id="modal-comingsoon" class="modal-comingsoon ">
         <div class="section hero-comingsoon d-flex align-items-center">
             <div class="container">
                 <div class="row">
@@ -332,7 +332,7 @@
     </div>
     <script>
         jQuery(document).ready(function ($) {
-            
+
             $('#countdown-clock').countdown('2020/12/14 22:00', function(event) {
               var $this = $(this).html(event.strftime(''
                 //+ '<div class="countdown-item"><span>%D</span> <span>Days</span></div> '
