@@ -45,10 +45,10 @@ get_header();
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sortDropdown">
                                 <a class="dropdown-item <?php if (isset($_REQUEST['orderByPrice']) && $_REQUEST['orderByPrice'] == 'price-low-high') {
                                                             echo 'active';
-                                                        } ?>" href="<?php echo get_permalink(get_page_by_path('shop-all')); ?>/?orderByPrice=price-low-high">Price: Low to High</a>
+                                                        } ?>" href="<?php echo currentUrl(); ?>&orderByPrice=price-low-high">Price: Low to High</a>
                                 <a class="dropdown-item <?php if (isset($_REQUEST['orderByPrice']) && $_REQUEST['orderByPrice'] == 'price-high-low') {
                                                             echo 'active';
-                                                        } ?>" href="<?php echo get_permalink(get_page_by_path('shop-all')); ?>/?orderByPrice=price-high-low">Price: High to Low</a>
+                                                        } ?>" href="<?php echo currentUrl(); ?>&orderByPrice=price-high-low">Price: High to Low</a>
                             </div>
                         </div>
                     </div>
