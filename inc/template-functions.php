@@ -1771,8 +1771,7 @@ $apiPayload=array(
 
 
      // Add the note
-     $order->add_order_note( json_encode($body) );
-     file_put_contents(get_template_directory_uri().'/janioReq.txt',json_encode($body));
+     //$order->add_order_note( json_encode($body) );
 
      $response = wp_remote_post( $url, 
          array(
@@ -1784,14 +1783,12 @@ $apiPayload=array(
      );
 
      $vars = json_decode($response['body'],true);
-     file_put_contents(get_template_directory_uri().'/janioBody.txt',json_encode($vars));
-     $order->add_order_note( json_encode($vars) );
-                 // API Response Stored as Post Meta
-                 $note = __("Janieo Tracking ID: ".$vars['tracking_no']);
+    // $order->add_order_note( json_encode($vars) );
+                
+                 $order->add_order_note( __("Janieo Tracking ID: ".$vars['tracking_nos']) );
+                 $order->add_order_note( __("Janieo Batch No : ".$vars['upload_batch_no']) );
 
-                 // Add the note
-                 $order->add_order_note( $note );
-       update_post_meta( $order_id, 'order_tracking_id', $vars['tracking_no'] );
+       update_post_meta( $order_id, 'order_tracking_id', $vars['tracking_nos'] );
 
    
 
