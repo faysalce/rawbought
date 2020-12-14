@@ -1769,7 +1769,7 @@ $apiPayload=array(
 
      $body = $apiPayload;
 
-     file_put_contents('/var/www/rawbought/wp-content/themes/rawbought/janioReq.txt',json_encode($body));
+     file_put_contents(get_template_directory_uri().'/janioReq.txt',json_encode($body));
      $response = wp_remote_post( $url, 
          array(
              'headers'   => array('Content-Type' => 'application/json; charset=utf-8'),
@@ -1780,7 +1780,7 @@ $apiPayload=array(
      );
 
      $vars = json_decode($response['body'],true);
-     file_put_contents('/var/www/rawbought/wp-content/themes/rawbought/janioBody.txt',json_encode($vars));
+     file_put_contents(get_template_directory_uri().'/janioBody.txt',json_encode($vars));
 
                  // API Response Stored as Post Meta
                  $note = __("Janieo Tracking ID: ".$vars['tracking_no']);
