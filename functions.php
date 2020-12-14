@@ -204,6 +204,9 @@ function rawbought_scripts() {
 	wp_enqueue_script( 'rawbought-magnific-popup-js', get_template_directory_uri() . '/assets/plugins/magnific/jquery.magnific-popup.min.js', array('rawbought-metisMenu-js'), _S_VERSION, true );
 	wp_enqueue_script( 'rawbought-bootstrap-slider-js', get_template_directory_uri() . '/assets/plugins/range/bootstrap-slider.min.js', array('rawbought-magnific-popup-js'), _S_VERSION, true );
 	wp_enqueue_script( 'rawbought-xzoom-js', get_template_directory_uri() . '/assets/plugins/zoom/jquery.zoom.min.js', array('rawbought-bootstrap-slider-js'), _S_VERSION, true );
+	wp_enqueue_script( 'countdown-js', get_template_directory_uri() . '/assets/plugins/zoom/jquery.countdown.min.js', array('rawbought-bootstrap-slider-js'), _S_VERSION, true );
+
+	
 	if(is_home()){
 		wp_enqueue_script( 'rawbought-home-sloder-js', get_template_directory_uri() . '/assets/js/home-slider.js', array('rawbought-xzoom-js'), _S_VERSION, true );
 

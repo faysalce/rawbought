@@ -1522,36 +1522,7 @@ add_action( 'woocommerce_save_product_variation', 'save_variation_fields', 10, 2
 function woo_variable_fields( $loop, $variation_data, $variation ) {
   echo '<div class="variation-custom-fields">';
     
-    //   // Text Field
-    //   woocommerce_wp_text_input( 
-    //     array( 
-    //       'id'          => '_text_field['. $loop .']', 
-    //       'label'       => __( 'Custom Variation Text Field', 'woocommerce' ), 
-    //       'placeholder' => 'http://',
-    //       //'desc_tip'    => true,
-    //       'wrapper_class' => 'form-row form-row-first',
-    //       //'description' => __( 'Enter the custom value here.', 'woocommerce' ),
-    //       'value'       => get_post_meta($variation->ID, '_text_field', true)
-    //     )
-    //   );
-      
-    //   // Number Field
-    //   woocommerce_wp_text_input( 
-    //     array( 
-    //       'id'          => '_number_field['. $loop .']', 
-    //       'label'       => __( 'Custom Variation Number Field ', 'woocommerce' ), 
-    //       //'desc_tip'    => true,
-    //       'wrapper_class' => 'form-row form-row-last',
-    //       //'description' => __( 'Enter the custom number here.', 'woocommerce' ),
-    //       'type'              => 'number', 
-    //       'value'       => get_post_meta($variation->ID, '_number_field', true),
-    //       'custom_attributes' => array(
-    //               'step'  => '2',
-    //               'min' => '0'
-    //             ) 
-    //     )
-    //   );
-      // Checkbox
+    
       woocommerce_wp_checkbox( 
       array( 
         'id'            => '_show_shop_all['. $loop .']', 
@@ -1562,91 +1533,19 @@ function woo_variable_fields( $loop, $variation_data, $variation ) {
         'value'         => get_post_meta($variation->ID, '_show_shop_all', true)
         )
       );
-    //   // Checkbox
-    //   woocommerce_wp_radio( 
-    //   array( 
-    //     'id'            => '_radio['. $loop .']', 
-    //     'label'         => __('Custom Variation Radio ', 'woocommerce' ), 
-    //     //'desc_tip'    => true,
-    //     //'description'   => __( 'Check me!', 'woocommerce' ),
-    //     //'wrapper_class' => 'form-row form-row-last',
-    //     'value'         => get_post_meta($variation->ID, '_radio', true),
-    //     'options' => array(
-    //       'one'   => __( 'Radio 1', 'woocommerce' ),
-    //       'two'   => __( 'Radio 2', 'woocommerce' ),
-    //       'three' => __( 'Radio 3', 'woocommerce' )
-    //       )
-    //     )
-    //   );
-    //   // Textarea
-    //   woocommerce_wp_textarea_input( 
-    //     array( 
-    //       'id'          => '_textarea['. $loop .']', 
-    //       'label'       => __( 'Custom Variation Textarea ', 'woocommerce' ), 
-    //       //'desc_tip'    => true,
-    //       // 'wrapper_class' => 'form-row',
-    //       'placeholder' => '', 
-    //       //'description' => __( 'Enter the custom value here.', 'woocommerce' ),
-    //       'value'       => get_post_meta($variation->ID, '_textarea', true)
-    //     )
-    //   );
-    //   // Select
-    //   woocommerce_wp_select( 
-    //   array( 
-    //     'id'          => '_select['. $loop .']', 
-    //     'label'       => __( 'Custom Variation Select ', 'woocommerce' ), 
-    //     'desc_tip'    => true,
-    //     // 'wrapper_class' => 'form-row',
-    //     'description' => __( 'Choose a value.', 'woocommerce' ),
-    //     'value'       => get_post_meta($variation->ID, '_select', true),
-    //     'options' => array(
-    //       'one'   => __( 'Select Option 1', 'woocommerce' ),
-    //       'two'   => __( 'Select Option 2', 'woocommerce' ),
-    //       'three' => __( 'Select Option 3', 'woocommerce' )
-    //       )
-    //     )
-    //   );
-      // Hidden field
-    //   woocommerce_wp_hidden_input(
-    //   array( 
-    //     'id'    => '_hidden_field['. $loop .']', 
-    //     'value' => 'hidden_value'
-    //     )
-    //   );
+  
+  
    
   echo "</div>"; 
 }
 /** Save new fields for variations */
 function save_variation_fields( $variation_id, $i) {
     
-    // // Text Field
-    // $text_field = stripslashes( $_POST['_text_field'][$i] );
-    // update_post_meta( $variation_id, '_text_field', esc_attr( $text_field ) );
-    
-    // // Number Field
-    // $number_field = $_POST['_number_field'][$i];
-    // update_post_meta( $variation_id, '_number_field', esc_attr( $number_field ) );
-    
-    // // Textarea
-    // $textarea = $_POST['_textarea'][$i];
-    // update_post_meta( $variation_id, '_textarea', esc_html( $textarea ) );
-    
-    // // Select
-    // $select = $_POST['_select'][$i];
-    // update_post_meta( $variation_id, '_select', esc_attr( $select ) );
-    
+   
     // Checkbox
     $checkbox = isset( $_POST['_show_shop_all'][$i] ) ? 'yes' : 'no';
     update_post_meta( $variation_id, '_show_shop_all', $checkbox );
-    // // Radio
-    // $radio = $_POST['_radio'][$i];
-    // update_post_meta( $variation_id, '_radio', esc_attr( $radio ) );
-        
-    // // Hidden field
-    // $hidden = $_POST['_hidden_field'][$i];
-    // if( ! empty( $hidden ) ) {
-    //   update_post_meta( $variation_id, '_hidden_field', esc_attr( $hidden ) );
-    // }
+   
 }
 add_action(
     'rest_api_init',
@@ -1920,7 +1819,6 @@ $settings  = array( 'media_buttons' => false, 'textarea_name' => 'product_return
           wp_editor( $content, 'product_return_delivery',$settings  );
 
         ?>
-		<!-- <textarea name="product_return_delivery" ><?php //echo $return_delivery; ?></textarea> -->
 	</p>
 </div>
 <?php
