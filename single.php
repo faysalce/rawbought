@@ -30,11 +30,11 @@ get_header();
                         <div class="jumbotron-legend">
                             <h1 class="jumbotron-title h2"><?php the_title();?></h1>
                         </div>
-                        <div class="article-image">
+                        <!-- <div class="article-image">
                             <figure>
-                                <img src="<?php echo $image_src;?>" alt="" class="img-fluid">
+                                <img src="<?php //echo $image_src;?>" alt="" class="img-fluid">
                             </figure>
-                        </div>
+                        </div> -->
                     </div>               
                 </div>
                 <div class="article-widget">
