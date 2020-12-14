@@ -1863,5 +1863,5 @@ function currentUrl() {
     $script   = $_SERVER['SCRIPT_NAME'];
     $params   = $_SERVER['QUERY_STRING'];
 
-    return $protocol . '://' . $host . $script . '?' . $params;
+    return $protocol . '://' . $host  . '?' . $params;
 }
