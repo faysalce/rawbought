@@ -1724,33 +1724,37 @@ $serviceList=array
     "Vietnam" => 30,
 );
 $apiPayload=array(
-    "shipper_order_id"=> $order_id,
-    "service_id"=> $serviceList[$orderShippingCountry],
-    "order_length"=> 400,
-    "order_width"=> 300,
-    "order_height"=> 120,
-    "order_weight"=> 12,
-    "payment_type"=> "prepaid",
-    "consignee_name"=> $order->shipping_first_name. ''.$order->shipping_last_name,
-    "consignee_number" => $order->shipping_phone,
-    "consignee_country"=>'Singapore',
-    "consignee_address"=> $order->get_formatted_shipping_address(),
-    "consignee_postal"=> $order->shipping_postcode,
-    "consignee_city"=> ucfirst(WC()->countries->countries[ $order->shipping_city]),
-    "consignee_email"=> $order->billing_email,
-    "pickup_contact_name"=> ot_get_option('pickup_contact_name'),
-    "pickup_contact_number"=> ot_get_option('pickup_contact_number'),
-    "pickup_country"=> "Singapore",
-    "pickup_address"=> ot_get_option('pickup_address'),
-    "pickup_postal"=> ot_get_option('pickup_postal'),
-    "pickup_state"=> ot_get_option('pickup_state'),
-    "pickup_city"=> null,
-    "pickup_province"=> null,
-    "pickup_date"=> null,
-    "pickup_notes"=> null,
-    "items"=> $orderItems
+    "secret_key" => "string",
+    "blocking" => false,
+    "orders"=>array([
+        "shipper_order_id"=> $order_id,
+        "service_id"=> $serviceList[$orderShippingCountry],
+        "order_length"=> 400,
+        "order_width"=> 300,
+        "order_height"=> 120,
+        "order_weight"=> 12,
+        "payment_type"=> "prepaid",
+        "consignee_name"=> $order->shipping_first_name. ''.$order->shipping_last_name,
+        "consignee_number" => $order->shipping_phone,
+        "consignee_country"=>'Singapore',
+        "consignee_address"=> $order->get_formatted_shipping_address(),
+        "consignee_postal"=> $order->shipping_postcode,
+        "consignee_city"=> ucfirst(WC()->countries->countries[ $order->shipping_city]),
+        "consignee_email"=> $order->billing_email,
+        "pickup_contact_name"=> ot_get_option('pickup_contact_name'),
+        "pickup_contact_number"=> ot_get_option('pickup_contact_number'),
+        "pickup_country"=> "Singapore",
+        "pickup_address"=> ot_get_option('pickup_address'),
+        "pickup_postal"=> ot_get_option('pickup_postal'),
+        "pickup_state"=> ot_get_option('pickup_state'),
+        "pickup_city"=> null,
+        "pickup_province"=> null,
+        "pickup_date"=> null,
+        "pickup_notes"=> null,
+        "items"=> $orderItems
+    ])
+    
 );
-
 
 
      // API Callout to URL
@@ -1832,8 +1836,10 @@ add_action('save_post', 'save_fields_values_for_job_apply');
 
 function save_fields_values_for_job_apply() {
     global $post;
-
+if(isset($_POST["product_return_delivery"]) and $_POST["product_return_delivery"]==''){
     update_post_meta($post->ID, "product_return_delivery", $_POST["product_return_delivery"]);
+
+}
 }
 
 
