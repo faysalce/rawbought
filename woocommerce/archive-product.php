@@ -30,16 +30,64 @@ $current_term = get_term($category->term_id);
         <div class="container-fluid container-xl-fluid">
             <div class="header-jumbotron">
                 <div class="jumbotron-legend">
-                    <h1 class="jumbotron-title h2"><?php
-                                                    if ($page_term && $current_term->taxonomy == 'product_cat') {
-                                                        echo $current_term->name;
-                                                    } else {
-                                                    }
+                    <?php
+                    if (isset($_REQUEST['orderByPrice'])) {
+                        $order_by = $_REQUEST['orderByPrice'];
+                    } else {
+                        $order_by = '';
+                    }
 
 
-                                                    ?></h1>
+                    $args2 = array(
+
+                        'posts_per_page' => -1,
+                        'post_type' => array('product_variation'),
+                        'post_status' => 'publish',
+                        'meta_query' => array(array(
+                            'key'     => '_show_shop_all',
+                            'value'   => 'yes',
+
+                        )),
+
+
+
+
+                    );
+                    switch ($order_by) {
+
+                        case 'price-low-high':
+                            $args2['orderby'] = 'meta_value_num';
+                            $args2['meta_key'] = '_price';
+                            $args2['order'] = 'asc';
+                            break;
+
+                        case 'price-high-low':
+                            $args2['orderby'] = 'meta_value_num';
+                            $args2['meta_key'] = '_price';
+                            $args2['order'] = 'desc';
+                            break;
+
+                            // case 'rating':
+                            //     $args['orderby'] = 'meta_value_num';
+                            //     $args['meta_key'] = '_wc_average_rating';
+                            //     $args['order'] = 'desc';
+                            //     break;
+
+                            // case 'popularity':
+                            //     $args['orderby'] = 'meta_value_num';
+                            //     $args['meta_key'] = 'total_sales';
+                            //     $args['order'] = 'desc';
+                            //     break;
+                    }
+
+                    $all_products = get_posts($args);
+                    ?>
+                    <h1 class="jumbotron-title h2">All Categories</h1>
                     <span class="jumbotron-label mt-3">
-                        <span class="total-count-top"><?php echo $current_term->count; ?> results</span>
+                        <span><?php
+                                $count_posts = wp_count_posts('product')->publish;
+
+                                echo  count($all_products); ?> results</span>
                     </span>
                 </div>
                 <div class="products-filterbar products-filters">
@@ -61,9 +109,12 @@ $current_term = get_term($category->term_id);
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sortDropdown">
-                                <a class="dropdown-item" href="#">New Arrivals</a>
-                                <a class="dropdown-item" href="#">Price: Low to High</a>
-                                <a class="dropdown-item active" href="#">Price: High to Low</a>
+                                <a class="dropdown-item <?php if (isset($_REQUEST['orderByPrice']) && $_REQUEST['orderByPrice'] == 'price-low-high') {
+                                                            echo 'active';
+                                                        } ?>" href="<?php echo get_permalink(get_page_by_path('shop-all')); ?>/?orderByPrice=price-low-high">Price: Low to High</a>
+                                <a class="dropdown-item <?php if (isset($_REQUEST['orderByPrice']) && $_REQUEST['orderByPrice'] == 'price-high-low') {
+                                                            echo 'active';
+                                                        } ?>" href="<?php echo get_permalink(get_page_by_path('shop-all')); ?>/?orderByPrice=price-high-low">Price: High to Low</a>
                             </div>
                         </div>
                     </div>
@@ -72,38 +123,14 @@ $current_term = get_term($category->term_id);
             <div class="row category-products">
 
                 <?php
-                $args = array(
-                    'posts_per_page' => -1,
-                    'post_type' => 'product',
-                    'post_status' => 'publish',       // name of post type.
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'product_cat',   // taxonomy name
-                            'field' => 'term_id',           // term_id, slug or name
-                            'terms' => $current_term->term_id,                  // term id, term slug or term name
-                        )
-                    )
-                );
 
-                $all_products = get_posts($args);
                 if (count($all_products) > 0) {
 
                     foreach ($all_products as $all_product) {
 
-$count=0;
+                        $count = 0;
 
-                        $args2 = array(
-                            'posts_per_page' => -1,
-                            'post_type' => array('product_variation'),
-                            'post_status' => 'publish',
-                            'post_parent' => $all_product->ID,
-                            'meta_query' => array(array(
-                                'key'     => '_show_shop_all',
-                                'value'   => 'yes',
-
-                            )),
-
-                        );
+                        $args2['post_parent'] = $all_product->ID;
 
                         $all_productsVarient = get_posts($args2);
 
@@ -111,7 +138,7 @@ $count=0;
 
 
                             foreach ($all_productsVarient as $productVarieant) {
-$count++;
+                                $count++;
                                 $product = wc_get_product($productVarieant->ID);
                                 $product_id = $productVarieant->ID;
                                 $images = $product->get_gallery_image_ids();
@@ -131,7 +158,7 @@ $count++;
                                 } else {
                                     $image_src_sec = get_template_directory_uri() . '/assets/images/product-placeholder.jpg';
                                 }
-                                $productParent = wc_get_product( $product->get_parent_id() );
+                                $productParent = wc_get_product($product->get_parent_id());
 
                                 $sale_price = $product->get_sale_price();
                                 $regular_price = $product->get_price();
@@ -182,7 +209,7 @@ $count++;
                         }
                     }
                 } ?>
-<input type="hidden" name="total_product_count" class="total_product_count" value="<?php echo $count;?>" />
+                <input type="hidden" name="total_product_count" class="total_product_count" value="<?php echo $count; ?>" />
 
             </div>
         </div>
@@ -194,7 +221,7 @@ $count++;
 
 <?php get_footer(); ?>
 <script>
-    jQuery(document).ready(function($){
+    jQuery(document).ready(function($) {
 
         $('.total-count-top').html($('.total_product_count').val());
     });
