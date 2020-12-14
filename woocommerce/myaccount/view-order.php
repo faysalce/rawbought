@@ -142,10 +142,7 @@ if($product){
 					} else {
 						$image_src = get_template_directory_uri() . '/assets/images/product-placeholder.jpg';
 					}
-				}else{
-					$image_src = get_template_directory_uri() . '/assets/images/product-placeholder.jpg';
-
-				}
+				
 				?>
 
 
@@ -201,7 +198,7 @@ if($product){
 							?>
 						</td>
 					</tr>
-				<?php } ?>
+				<?php } }?>
 			</tbody>
 		</table>
 	</div>
