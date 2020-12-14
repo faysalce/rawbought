@@ -108,10 +108,10 @@ $current_term = get_term($category->term_id);
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sortDropdown">
                                 <a class="dropdown-item <?php if (isset($_REQUEST['orderByPrice']) && $_REQUEST['orderByPrice'] == 'price-low-high') {
                                                             echo 'active';
-                                                        } ?>" href="<?php echo if(){get_permalink(get_page_by_path('shop-all')); ?>/?orderByPrice=price-low-high">Price: Low to High</a>
+                                                        } ?>" href="<?php  if(is_tax('product_cat')){get_term_link($current_term );} ?>/?orderByPrice=price-low-high">Price: Low to High</a>
                                 <a class="dropdown-item <?php if (isset($_REQUEST['orderByPrice']) && $_REQUEST['orderByPrice'] == 'price-high-low') {
                                                             echo 'active';
-                                                        } ?>" href="<?php echo get_permalink(get_page_by_path('shop-all')); ?>/?orderByPrice=price-high-low">Price: High to Low</a>
+                                                        } ?>" href="<?php  if(is_tax('product_cat')){get_term_link($current_term );} ?>/?orderByPrice=price-high-low">Price: High to Low</a>
                             </div>
                         </div>
                     </div>
