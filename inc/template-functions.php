@@ -665,8 +665,8 @@ function get_order_first_image($order)
     foreach ($order_items as $item_id => $item) {
 
         $product = $item->get_product();
-
-        $post_thumbnail_id = get_post_thumbnail_id($item_id);
+if($product){
+        $post_thumbnail_id = get_post_thumbnail_id($product->get_id());
 
         if (!empty($post_thumbnail_id)) {
             $post_thumbnail_src = wp_get_attachment_image_src($post_thumbnail_id, 'medium'); //get thumbnail image url			
@@ -676,8 +676,13 @@ function get_order_first_image($order)
         }
 
         $images[] = $image_src;
-    }
+    }else{
+        $image_src = get_template_directory_uri() . '/assets/images/product-placeholder.jpg';
+    
 
+    $images[] = $image_src;
+    }
+    }
 
     return $images;
 }
