@@ -11,7 +11,7 @@
 get_header();
 ?>
 <main id="main-content">
-	<section class="section hero-error" style="background-image: url(<?php echo get_template_directory_uri();?>/assets/images/bg_coming.jpg)">
+	<section class="section hero-error" style="background-image: url(<?php echo ot_get_option('404_image');?>/assets/images/bg_coming.jpg)">
         <div class="container container-xl-fluid position-relative">
             <div class="section-error-header mx-auto">
                 <div class="row">
