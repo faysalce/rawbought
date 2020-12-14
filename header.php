@@ -209,13 +209,23 @@ wp_nav_menu( array(
 
 	<?php 
 
-	// if(isset($_GET['counter-hide']) && $_GET['counter-hide']=='yes'){
+	if(isset($_GET['counter-hide']) && $_GET['counter-hide']=='yes'){
+		setcookie("counter-hide", $_GET['counter-hide'], time()+3600);  /* expire in 1 hour */
+		
+	}else if(isset($_GET['counter-hide']) && $_GET['counter-hide']=='no'){
+
+		if (isset($_COOKIE['counter-hide'])) {
+			unset($_COOKIE['counter-hide']); 
+			setcookie('counter-hide', null, -1, '/'); 
+		}
 		
 
-	// }else{
-	// 	get_template_part('template-parts/modal-count'); 
-	// }
+	}
 
+	if(!$_COOKIE['counter-hide']){
+		get_template_part('template-parts/modal-count'); 
+
+	}
 	
 	
 	
