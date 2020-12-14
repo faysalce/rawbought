@@ -198,6 +198,13 @@ function custom_theme_options()
                 'section' => 'init'
             ),
             array(
+                'id' => 'janio_secret_key',
+                'label' => 'Janio Secret Key',
+                'desc' => '',
+                'type' => 'text',
+                'section' => 'init'
+            ),
+            array(
                 'id' => 'pickup_contact_name',
                 'label' => 'Pickup Contact Name',
                 'desc' => '',

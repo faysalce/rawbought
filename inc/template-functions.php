@@ -1724,7 +1724,7 @@ $serviceList=array
     "Vietnam" => 30,
 );
 $apiPayload=array(
-    "secret_key" => "string",
+    "secret_key" => ot_get_option('janio_secret_key'),
     "blocking" => false,
     "orders"=>array([
         "shipper_order_id"=> $order_id,
