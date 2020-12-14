@@ -162,6 +162,12 @@ function custom_theme_options()
                 'type' => 'upload',
                 'section' => 'init'
             ), array(
+                'id' => '404_image',
+                'label' => '404 background image ',
+                'desc' => '',
+                'type' => 'upload',
+                'section' => 'init'
+            ), array(
                 'id' => 'promotion',
                 'label' => 'Promotion',
                 'desc' => '',

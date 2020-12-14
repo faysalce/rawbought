@@ -67,27 +67,24 @@ $current_term = get_term($category->term_id);
                             $args2['order'] = 'desc';
                             break;
 
-                            // case 'rating':
-                            //     $args['orderby'] = 'meta_value_num';
-                            //     $args['meta_key'] = '_wc_average_rating';
-                            //     $args['order'] = 'desc';
-                            //     break;
-
-                            // case 'popularity':
-                            //     $args['orderby'] = 'meta_value_num';
-                            //     $args['meta_key'] = 'total_sales';
-                            //     $args['order'] = 'desc';
-                            //     break;
                     }
-
+                    $args = array(
+                        'posts_per_page' => -1,
+                        'post_type' => 'product',
+                        'post_status' => 'publish',       // name of post type.
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'product_cat',   // taxonomy name
+                                'field' => 'term_id',           // term_id, slug or name
+                                'terms' => $current_term->term_id,                  // term id, term slug or term name
+                            )
+                        )
+                    );
                     $all_products = get_posts($args);
                     ?>
                     <h1 class="jumbotron-title h2">All Categories</h1>
                     <span class="jumbotron-label mt-3">
-                        <span><?php
-                                $count_posts = wp_count_posts('product')->publish;
-
-                                echo  count($all_products); ?> results</span>
+                        <span><span class="total-count-top"> </span> results</span>
                     </span>
                 </div>
                 <div class="products-filterbar products-filters">
