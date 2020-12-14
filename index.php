@@ -135,16 +135,21 @@
 						<div class="newsletter-inside">
 							<p class="newsletter-text">
 								<?php echo ot_get_option('home_newsletter_txt'); ?> </p>
-								<div class="thanks-text thanks-text-home d-none">Thank you for signing up.</div>
+							<div class="thanks-text thanks-text-home d-none">Thank you for signing up.</div>
 							<form method="post" place="home" class="newsletter-form" action="https://staging.rawbought.com/?na=s">
-								<input class="form-control newsletter-email-home" placeholder="Email" type="text" name="ne" value="" >
+								<input class="form-control newsletter-email-home" placeholder="Email" type="text" name="ne" value="">
+								<input type="hidden" name="na" value="s">
 
+								<input type="hidden" name="nhr" value="<?php echo home_url(); ?>">
+								<input type="hidden" name="ts" value="<?php echo time(); ?>">
 								<input type="hidden" name="nlang" value="">
 								<button type="submit" value="Subscribe" class="btn btn-site btn-lg btn-primary btn-arrow-right rounded-0 he-rotate btn-newsletter">
 									<span class="btn__text">Sign Up</span>
 									<i class="ion ion-ios-arrow-round-forward"></i>
 								</button>
 							</form>
+
+
 
 
 						</div>

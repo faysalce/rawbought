@@ -20,11 +20,11 @@
                                         <ul class="list-checkbox checkbox-sm -column">
 
                                         <?php
-                                        
+                                        if(is_category()){
                                         $category = get_queried_object();
                                         $page_term = $category->term_id;
                                         $current_term = get_term($category->term_id);
-                
+                                        }
                                       
                                         $productCats = get_terms('product_cat', array(
                                             'hide_empty' => true,
@@ -33,9 +33,9 @@
                                             foreach ($productCats as $cat) {
                                         ?>
                                                 <li class="list-item">
-                                                    <a class="list-checkbox <?php if ($current_term->term_id == $cat->term_id) {
+                                                    <a class="list-checkbox <?php  if(is_category()){ if($current_term->term_id == $cat->term_id) {
                                                                                 echo "active";
-                                                                            } ?>" href="<?php echo get_term_link($cat); ?>"><?php echo $cat->name; ?></a>
+                                                                            } }?>" href="<?php echo get_term_link($cat); ?>"><?php echo $cat->name; ?></a>
 
                                                 </li>
                                         <?php }

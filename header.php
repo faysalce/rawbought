@@ -47,7 +47,7 @@
 		</div>
 	</div>
 	<header id="header" class="header">
-		<nav class="<?php if(is_home()){echo "navbar navbar-expand-lg navbar-dark bg-transparent navbar-align-bottom navbar-mega fixed-top bg-transparent-fixed-top navbar__only_desktop navbar-initial";}else{echo "navbar navbar-expand-lg navbar-light bg-white navbar-filled fixed-top navbar-align-bottom navbar-mega navbar__only_desktop";}?>">
+		<nav class="<?php if(is_home() || is_404()){echo "navbar navbar-expand-lg navbar-dark bg-transparent navbar-align-bottom navbar-mega fixed-top bg-transparent-fixed-top navbar__only_desktop navbar-initial";}else{echo "navbar navbar-expand-lg navbar-light bg-white navbar-filled fixed-top navbar-align-bottom navbar-mega navbar__only_desktop";}?>">
 			<div class="container container-xl-fluid">
 				<div class="collapse navbar-collapse">
 
