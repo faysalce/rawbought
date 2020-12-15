@@ -26,7 +26,7 @@ if ( ! $notices ) {
 ?>
 
 <?php foreach ( $notices as $notice ) : ?>
-	<div class="alert d-none alert-default alert-dismissible fade show" role="alert">
+	<div class="alert  alert-default alert-dismissible fade show" role="alert">
 	<?php echo wc_kses_notice( $notice['notice'] ); ?>
 
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
