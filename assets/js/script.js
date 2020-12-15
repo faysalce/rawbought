@@ -288,7 +288,9 @@ e.preventDefault();
 		e.preventDefault();
 		var currentActive = $('.nav-checkout-step > li > .active').attr('aria-controls');
 		console.log(currentActive);
+		console.log(currentActive);
 		if ('tb_shipping' == currentActive) {
+			console.log(currentActive);
 
 			var fname = $('#shipping_first_name');
 			var lname = $('#shipping_last_name');
