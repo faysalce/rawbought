@@ -10,9 +10,11 @@
 
 	li {
 		color: rgba($primary, .55);
+        pointer-events: none !important;
 	}
 	a {
 		text-decoration: underline;
+        pointer-events: none !important;
 	}
 	.active {
 		font-weight: 600;
@@ -31,6 +33,7 @@
     text-transform: uppercase;
     li {
         display: flex;
+        pointer-events: none !important;
         + li {
             padding-left: .5rem;
             &:before {
@@ -45,6 +48,7 @@
         padding: 0;
         border-radius: 0;
         color: rgba($primary, .55);
+        pointer-events: none !important;
         &.active {
             background-color: transparent;
             font-weight: 600;
