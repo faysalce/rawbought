@@ -1761,9 +1761,9 @@ $apiPayload=array(
     ])
     
 );
-$order->add_order_note( "Shipping Country: ".$orderShippingCountry);
-if(in_array($orderShippingCountry,$serviceList)){
-     // API Callout to URL
+
+if(array_key_exists($orderShippingCountry, $serviceList)){
+    $order->add_order_note( "Shipping Country: ".$orderShippingCountry);   // API Callout to URL
 
      $url = ot_get_option('janio_api_url');
 
