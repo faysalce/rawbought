@@ -475,6 +475,7 @@ e.preventDefault();
 			var adderss1 = $('#shipping_address_1').val();
 			var adderss2 = $('#shipping_address_2').val();
 			var country = $('#shipping_country').val();
+
 			var city = $('#shipping_city').val();
 			var post = $('#shipping_postcode').val();
 			var phone = $('#shipping_phone').val();
@@ -483,7 +484,9 @@ e.preventDefault();
 			$('#billing_last_name').val(lname);
 			$('#billing_address_1').val(adderss1);
 			$('#billing_address_2').val(adderss2);
-			$('#billing_country').val(country);
+		//	$('#billing_country').val(country);
+			$('#billing_country').val(country).trigger('change');
+
 			$('#billing_city').val(city);
 			$('#billing_postcode').val(post);
 			$('#billing_phone').val(phone);
