@@ -287,8 +287,6 @@ e.preventDefault();
 	$('.btn-stepnext').click(function (e) {
 		e.preventDefault();
 		var currentActive = $('.nav-checkout-step > li > .active').attr('aria-controls');
-		console.log(currentActive);
-		console.log(currentActive);
 		if ('tb_shipping' == currentActive) {
 			console.log(currentActive);
 
@@ -307,7 +305,7 @@ e.preventDefault();
 
             adderss1!==''? addreess += ' <br/> ' + adderss1.val():'' ;
             adderss2!==''? addreess += adderss2.val():'' ;
-            addreess +=' <br/> '+city.val() + '<br/> ' + post.val() + ', ' + $( "#billing_country option:selected" ).text();
+            addreess +=' <br/> '+city.val() + '<br/> ' + post.val() + ', ' + $( "#shipping_country option:selected" ).text();
 			// $('.billing-address-wrp-plain').html(addreess);
 			var valid = true;
 			if (fname.val() == '' || lname.val() == '' || adderss1.val() == '' || country.val() == '' || city.val() == '' || post.val() == '' || phone.val() == ''|| email.val() == '') {
