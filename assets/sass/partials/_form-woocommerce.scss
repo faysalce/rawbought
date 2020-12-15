@@ -53,6 +53,18 @@
 	line-height: 42px;
 	color: $color-text;
 }
+.select2-container--default .select2-results__option {
+	&:hover, &:focus {
+		background-color: $primary;
+		color: $white;
+	}
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected], 
+.select2-container--default .select2-results__option--highlighted[data-selected] {
+	background-color: $primary;
+	color: $white;
+}
+
 .woocommerce-shipping-methods {
 	list-style: none;
 	li {
