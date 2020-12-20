@@ -1763,7 +1763,7 @@ $apiPayload=array(
 );
 
 if(array_key_exists($orderShippingCountry, $serviceList)){
-    //$order->add_order_note( "Shipping Country: ".$orderShippingCountry);   // API Callout to URL
+    $order->add_order_note( "Shipping Country: ".$orderShippingCountry);   // API Callout to URL
 
      $url = ot_get_option('janio_api_url');
 
@@ -1771,7 +1771,7 @@ if(array_key_exists($orderShippingCountry, $serviceList)){
 
 
      // Add the note
-     //$order->add_order_note( json_encode($body) );
+     $order->add_order_note( json_encode($body) );
 
      $response = wp_remote_post( $url, 
          array(
@@ -1783,7 +1783,7 @@ if(array_key_exists($orderShippingCountry, $serviceList)){
      );
 
      $vars = json_decode($response['body'],true);
-    //$order->add_order_note( json_encode($vars) );
+    $order->add_order_note( json_encode($vars) );
                 
                  $order->add_order_note( __("Janieo Tracking ID: ".$vars['tracking_nos'][0]) );
                  $order->add_order_note( __("Janieo Batch No : ".$vars['upload_batch_no']) );
