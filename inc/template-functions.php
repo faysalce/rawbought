@@ -41,6 +41,57 @@ $args = array(
 );
 register_post_type('email_subscribe', $args);
 
+
+
+function wpdocs_codex_book_init() {
+    $labels = array(
+        'name'                  => _x( 'Return Request', 'Post type general name', 'textdomain' ),
+        'singular_name'         => _x( 'Return Request', 'Post type singular name', 'textdomain' ),
+        'menu_name'             => _x( 'Return Request', 'Admin Menu text', 'textdomain' ),
+        'name_admin_bar'        => _x( 'Return Request', 'Add New on Toolbar', 'textdomain' ),
+        'add_new'               => __( 'Add New', 'textdomain' ),
+        'add_new_item'          => __( 'Add New Return Request', 'textdomain' ),
+        'new_item'              => __( 'New Return Request', 'textdomain' ),
+        'edit_item'             => __( 'Edit Return Request', 'textdomain' ),
+        'view_item'             => __( 'View Return Request', 'textdomain' ),
+        'all_items'             => __( 'All Return Request', 'textdomain' ),
+        'search_items'          => __( 'Search Return Request', 'textdomain' ),
+        'parent_item_colon'     => __( 'Parent Return Request:', 'textdomain' ),
+        'not_found'             => __( 'No Return Request found.', 'textdomain' ),
+        'not_found_in_trash'    => __( 'No Return Request found in Trash.', 'textdomain' ),
+        'featured_image'        => _x( 'Return Request Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
+        'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+        'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+        'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+        'archives'              => _x( 'Return Request archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'textdomain' ),
+        'insert_into_item'      => _x( 'Insert into Return Request', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'textdomain' ),
+        'uploaded_to_this_item' => _x( 'Uploaded to this Return Request', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'textdomain' ),
+        'filter_items_list'     => _x( 'Filter Return Request list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'textdomain' ),
+        'items_list_navigation' => _x( 'Return Request list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'textdomain' ),
+        'items_list'            => _x( 'Return Request list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain' ),
+    );
+ 
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'return-request' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    );
+ 
+    register_post_type( 'returns', $args );
+}
+ 
+add_action( 'init', 'wpdocs_codex_book_init' );
+
+
 add_action('wp_ajax_email_subscription', 'email_subscription');
 add_action('wp_ajax_nopriv_email_subscription', 'email_subscription');
 function add_cors_http_header()
@@ -68,6 +119,11 @@ function email_subscription($email)
     json_encode($return);
 }
 
+
+
+
+add_action('wp_ajax_ajax_return_request', 'ajax_return_request');
+add_action('wp_ajax_nopriv_ajax_return_request', 'ajax_return_request');
 
 
 add_action('wp_ajax_ajax_register', 'ajax_register');
@@ -172,6 +228,50 @@ function ajax_login_checkout()
         wp_send_json(array('status' => 1, 'message' => __('you currectly logined')));;
     }
 }
+
+function ajax_return_request(){
+    $order_id = sanitize_text_field($_POST['order_id']);
+    $item_id= sanitize_text_field($_POST['item_id']);
+    $pick_date = sanitize_text_field($_POST['pick_date']);
+    $return_reason = sanitize_text_field($_POST['return_reason']);
+   // returns
+
+
+
+}
+
+
+// Add the custom columns to the book post type:
+add_filter( 'manage_returns_posts_columns', 'set_custom_edit_returns_columns' );
+function set_custom_edit_returns_columns($columns) {
+    unset( $columns['author'] );
+    $columns['book_author'] = __( 'Author', 'your_text_domain' );
+    $columns['publisher'] = __( 'Publisher', 'your_text_domain' );
+
+    return $columns;
+}
+
+// Add the data to the custom columns for the book post type:
+add_action( 'manage_returns_posts_custom_column' , 'custom_returns_column', 10, 2 );
+function custom_book_column( $column, $post_id ) {
+    switch ( $column ) {
+
+        case 'book_author' :
+            $terms = get_the_term_list( $post_id , 'book_author' , '' , ',' , '' );
+            if ( is_string( $terms ) )
+                echo $terms;
+            else
+                _e( 'Unable to get author(s)', 'your_text_domain' );
+            break;
+
+        case 'publisher' :
+            echo get_post_meta( $post_id , 'publisher' , true ); 
+            break;
+
+    }
+}
+
+
 function ajax_register()
 {
     check_ajax_referer('ajax-register-nonce', 'security');
