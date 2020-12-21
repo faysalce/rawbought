@@ -449,6 +449,8 @@ endwhile; // End of the loop.
                         sliderImageNave += ' <div class="slide-item"><img src="' + item + '" alt=""></div>';
 
                     });
+
+                    console.log('imgae-------');
 console.log(slideImages);
                     jQuery('#productMainSlider').slick("unslick");
                     <?php if (!wp_is_mobile()) { ?>
