@@ -441,10 +441,12 @@ endwhile; // End of the loop.
             //console.log(allimages);
            
             if (Object.keys(allimages).length > 0) {
-                var slideImages, sliderImageNave;
+              
                 if (allimages[selectedColor].length > 0) {
                     let uniqueArr = allimages[colorName].filter((v, i, a) => a.indexOf(v) === i);
                     //console.log(uniqueArr);
+                    var slideImages="";
+                    var sliderImageNave="";
                     uniqueArr.forEach(function(item, index) {
                         slideImages += '<div class="slide-item"><div class="zoom-proimg" data-src="' + item + '"><img src="' + item + '" alt=""></div></div>';
                         sliderImageNave += ' <div class="slide-item"><img src="' + item + '" alt=""></div>';
