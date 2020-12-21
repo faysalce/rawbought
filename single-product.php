@@ -427,7 +427,7 @@ endwhile; // End of the loop.
             }, 'linear');
         });
         var selectedColor = $('input[type="radio"][name="attribute_pa_colour"]:checked').val();
-        console.log(selectedColor);
+        //console.log(selectedColor);
         if (selectedColor) {
 
             $('.item_attribute_pa_colour').removeClass('is-selected');
@@ -449,7 +449,7 @@ endwhile; // End of the loop.
                         sliderImageNave += ' <div class="slide-item"><img src="' + item + '" alt=""></div>';
 
                     });
-
+console.log(slideImages);
                     jQuery('#productMainSlider').slick("unslick");
                     <?php if (!wp_is_mobile()) { ?>
                         jQuery('#productMainSliderNav').slick("unslick");
