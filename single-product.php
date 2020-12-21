@@ -452,7 +452,7 @@ endwhile; // End of the loop.
                     slideImages.replace("undefined", "");
                     sliderImageNave.replace("undefined", "");
                     console.log('imgae-------');
-console.log(slideImages);
+console.log(allimages[colorName]);
                     jQuery('#productMainSlider').slick("unslick");
                     <?php if (!wp_is_mobile()) { ?>
                         jQuery('#productMainSliderNav').slick("unslick");
