@@ -453,8 +453,7 @@ endwhile; // End of the loop.
 
                     });
                    
-                    console.log('imgae-------');
-console.log(slideImages);
+                  
                     jQuery('#productMainSlider').slick("unslick");
                     <?php if (!wp_is_mobile()) { ?>
                         jQuery('#productMainSliderNav').slick("unslick");
@@ -498,10 +497,12 @@ console.log(slideImages);
                 $(this).closest('.item_attribute_pa_colour').addClass('is-selected');
                 allimages = JSON.parse($('.variation-color-image-data').attr('json-image'));
                 //console.log(allimages);
-                var slideImages, sliderImageNave;
+               
                 if (Object.keys(allimages).length > 0) {
                     if (allimages[colorName].length > 0) {
                         let uniqueArr = allimages[colorName].filter((v, i, a) => a.indexOf(v) === i);
+                        var slideImages="";
+                    var sliderImageNave="";
                         uniqueArr.forEach(function(item, index) {
                             slideImages += ' <div class="slide-item"><div class="zoom-proimg" data-src="' + item + '"><img src="' + item + '" alt=""></div></div>';
                             sliderImageNave += ' <div class="slide-item"><img src="' + item + '" alt=""></div>';
@@ -511,8 +512,7 @@ console.log(slideImages);
 
                 }
 
-                slideImages.replace("undefined", "");
-                    sliderImageNave.replace("undefined", "");
+                
                 jQuery('#productMainSlider').slick("unslick");
                     <?php if (!wp_is_mobile()) { ?>
                         jQuery('#productMainSliderNav').slick("unslick");
