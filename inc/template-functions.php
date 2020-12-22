@@ -261,6 +261,7 @@ function ajax_return_request()
     }
 
     return json_encode($return);
+    die();
 }
 
 
@@ -278,7 +279,7 @@ function set_custom_edit_returns_columns($columns)
 
 // Add the data to the custom columns for the book post type:
 add_action('manage_returns_posts_custom_column', 'custom_returns_column', 10, 2);
-function custom_book_column($column, $post_id)
+function custom_returns_column($column, $post_id)
 {
     $order_id = get_post_meta($post_id, 'order_id', true);
     $order_item_id = get_post_meta($post_id, 'item_id', true);
