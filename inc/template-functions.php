@@ -263,11 +263,7 @@ function ajax_return_request()
     return json_encode($return);
     die();
 }
-function get_order_item($order_id){
-    $order = wc_get_order($order_id);
-    $order_item           = $order->get_items('line_item');
-   return $order_item  ;
-}
+
 
 // Add the custom columns to the book post type:
 add_filter('manage_returns_posts_columns', 'set_custom_edit_returns_columns');
@@ -290,17 +286,18 @@ function custom_returns_column($column, $post_id)
     $order_item_id = get_post_meta($post_id, 'item_id', true);
 
     $order = wc_get_order($order_id);
-    $order_item        = get_order_item($order_id);
+    $order_item           = $order->get_items(apply_filters('woocommerce_purchase_order_item_types', 'line_item'));
+    $order_item = $order_item[$order_item_id];
     $product = $order_item->get_name();
 
-    $qty          = $order_item->get_quantity();
-    $refunded_qty = $order->get_qty_refunded_for_item($order_item_id);
+    // $qty          = $order_item->get_quantity();
+    // $refunded_qty = $order->get_qty_refunded_for_item($order_item_id);
 
-    if ($refunded_qty) {
-        $qty_display = '<del>' . esc_html($qty) . '</del> <ins>' . esc_html($qty - ($refunded_qty * -1)) . '</ins>';
-    } else {
-        $qty_display = esc_html($qty);
-    }
+    // if ($refunded_qty) {
+    //     $qty_display = '<del>' . esc_html($qty) . '</del> <ins>' . esc_html($qty - ($refunded_qty * -1)) . '</ins>';
+    // } else {
+    //     $qty_display = esc_html($qty);
+    // }
 
 
 
@@ -313,7 +310,7 @@ function custom_returns_column($column, $post_id)
             break;
 
         case 'item_id':
-            echo $product . ' X ' . apply_filters('woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf('%s', $qty_display) . '</strong>', $order_item);
+            echo $product ;
             break;
         case 'total':
             echo $order->get_formatted_line_subtotal($order_item);
