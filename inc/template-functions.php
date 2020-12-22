@@ -305,12 +305,12 @@ function custom_returns_column($column, $post_id)
     switch ($column) {
 
         case 'order_id':
-            echo "<a href='" . esc_url($order->get_view_order_url()) . "'>" . $order->get_order_number() . "</a>";
-
+           // echo "<a href='" . esc_url($order->get_view_order_url()) . "'>" . $order->get_order_number() . "</a>";
+  echo get_post_meta($post_id, 'order_id', true);
             break;
 
         case 'item_id':
-           // echo $product ;
+            echo get_post_meta($post_id, 'item_id', true);
             break;
         case 'total':
            // echo $order->get_formatted_line_subtotal($order_item);
