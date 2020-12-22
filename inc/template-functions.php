@@ -264,7 +264,7 @@ function ajax_return_request()
         $return['message'] = 'Return request not successfully.';
     }
 
-    return json_encode($return);
+    echo json_encode($return);
     die();
 }
 
