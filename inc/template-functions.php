@@ -263,7 +263,11 @@ function ajax_return_request()
     return json_encode($return);
     die();
 }
-
+function get_order_item($order_id){
+    $order = wc_get_order($order_id);
+    $order_item           = $order->get_items(apply_filters('woocommerce_purchase_order_item_types', 'line_item'));
+   return $order_item  ;
+}
 
 // Add the custom columns to the book post type:
 add_filter('manage_returns_posts_columns', 'set_custom_edit_returns_columns');
@@ -277,6 +281,7 @@ function set_custom_edit_returns_columns($columns)
     return $columns;
 }
 
+
 // Add the data to the custom columns for the book post type:
 add_action('manage_returns_posts_custom_column', 'custom_returns_column', 10, 2);
 function custom_returns_column($column, $post_id)
@@ -285,8 +290,7 @@ function custom_returns_column($column, $post_id)
     $order_item_id = get_post_meta($post_id, 'item_id', true);
 
     $order = wc_get_order($order_id);
-    $order_item           = $order->get_items();
-    $order_item = $order_item[$order_item_id];
+    $order_item        = get_order_item($order_id);
     $product = $order_item->get_name();
 
     $qty          = $order_item->get_quantity();
