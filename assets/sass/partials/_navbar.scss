@@ -646,6 +646,12 @@
 	overflow: hidden;
 }
 @media (min-width: 992px) {
+	.navbar {
+		.menu-login-item-mobile-hide {
+			opacity: 0;
+			display: none !important;
+		}
+	}
 	.navbar-expand-lg .navbar-nav .nav-link {
 	    padding-right: 1rem;
 	    padding-left: 1rem;
@@ -684,6 +690,12 @@
 @media (max-width: 991.98px) {
 	.navbar__only_desktop {
 		display: none;
+	}
+	.navbar {
+		.menu-login-item-mobile-hide {
+			opacity: 1;
+			display: block !important;
+		}
 	}
 }
 @media (max-width: 575.98px) {

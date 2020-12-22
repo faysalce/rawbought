@@ -206,23 +206,7 @@ if (wp_is_mobile()) {
 
     });
 </script>
-<?php if (is_home()) { ?>
-    <script>
-        $(document).ready(function() {
 
-
-
-
-            $('.hero-slider').slick({
-                autoplay: true,
-                autoplaySpeed: 4000,
-                lazyLoad: 'ondemand',
-                arrows: false,
-                dots: true,
-            });
-        });
-    </script>
-<?php } ?>
 
 <?php if (is_page('shop-all')) { ?>
 
@@ -403,5 +387,7 @@ if (wp_is_mobile()) {
         // });
     </script>
 <?php } ?>
-
+<noscript>
+      Your browser doesn't support JavaScript
+    </noscript>
 </html>

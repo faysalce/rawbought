@@ -427,7 +427,7 @@ endwhile; // End of the loop.
             }, 'linear');
         });
         var selectedColor = $('input[type="radio"][name="attribute_pa_colour"]:checked').val();
-        console.log(selectedColor);
+        //console.log(selectedColor);
         if (selectedColor) {
 
             $('.item_attribute_pa_colour').removeClass('is-selected');
@@ -439,17 +439,21 @@ endwhile; // End of the loop.
             checkedRadio.closest('.item_attribute_pa_colour').addClass('is-selected');
             allimages = JSON.parse($('.variation-color-image-data').attr('json-image'));
             //console.log(allimages);
-            var slideImages, sliderImageNave;
+           
             if (Object.keys(allimages).length > 0) {
+              
                 if (allimages[selectedColor].length > 0) {
                     let uniqueArr = allimages[colorName].filter((v, i, a) => a.indexOf(v) === i);
                     //console.log(uniqueArr);
+                    var slideImages="";
+                    var sliderImageNave="";
                     uniqueArr.forEach(function(item, index) {
-                        slideImages += ' <div class="slide-item"><div class="zoom-proimg" data-src="' + item + '"><img src="' + item + '" alt=""></div></div>';
+                        slideImages += '<div class="slide-item"><div class="zoom-proimg" data-src="' + item + '"><img src="' + item + '" alt=""></div></div>';
                         sliderImageNave += ' <div class="slide-item"><img src="' + item + '" alt=""></div>';
 
                     });
-
+                   
+                  
                     jQuery('#productMainSlider').slick("unslick");
                     <?php if (!wp_is_mobile()) { ?>
                         jQuery('#productMainSliderNav').slick("unslick");
@@ -493,10 +497,12 @@ endwhile; // End of the loop.
                 $(this).closest('.item_attribute_pa_colour').addClass('is-selected');
                 allimages = JSON.parse($('.variation-color-image-data').attr('json-image'));
                 //console.log(allimages);
-                var slideImages, sliderImageNave;
+               
                 if (Object.keys(allimages).length > 0) {
                     if (allimages[colorName].length > 0) {
                         let uniqueArr = allimages[colorName].filter((v, i, a) => a.indexOf(v) === i);
+                        var slideImages="";
+                    var sliderImageNave="";
                         uniqueArr.forEach(function(item, index) {
                             slideImages += ' <div class="slide-item"><div class="zoom-proimg" data-src="' + item + '"><img src="' + item + '" alt=""></div></div>';
                             sliderImageNave += ' <div class="slide-item"><img src="' + item + '" alt=""></div>';
@@ -506,7 +512,7 @@ endwhile; // End of the loop.
 
                 }
 
-
+                
                 jQuery('#productMainSlider').slick("unslick");
                     <?php if (!wp_is_mobile()) { ?>
                         jQuery('#productMainSliderNav').slick("unslick");
