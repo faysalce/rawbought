@@ -252,6 +252,10 @@ function ajax_return_request()
     $post_id = wp_insert_post($my_post);
     if ($post_id) {
         update_post_meta($post_id, 'pick_date', $pick_date);
+        update_post_meta($post_id, 'item_id', $order_item_id);
+
+        update_post_meta($post_id, 'order_id', $order_id);
+
         update_post_meta($post_id, 'return_reason', $return_reason);
         $return['status'] = 1;
         $return['message'] = 'Return request submited successfully.';
@@ -277,27 +281,26 @@ function set_custom_edit_returns_columns($columns)
     return $columns;
 }
 
-
 // Add the data to the custom columns for the book post type:
 add_action('manage_returns_posts_custom_column', 'custom_returns_column', 10, 2);
 function custom_returns_column($column, $post_id)
 {
-     $order_id = get_post_meta($post_id, 'order_id', true);
-     $order_item_id = get_post_meta($post_id, 'item_id', true);
+    $order_id = get_post_meta($post_id, 'order_id', true);
+    $order_item_id = get_post_meta($post_id, 'item_id', true);
 
     $order = wc_get_order($order_id);
-    // $order_item           = $order->get_items(apply_filters('woocommerce_purchase_order_item_types', 'line_item'));
-    // $order_item = $order_item[$order_item_id];
-    // $product = $order_item->get_name();
+    $order_item           = $order->get_items(apply_filters('woocommerce_purchase_order_item_types', 'line_item'));
+    $order_item = $order_item[$order_item_id];
+    $product = $order_item->get_name();
 
-    // $qty          = $order_item->get_quantity();
-    // $refunded_qty = $order->get_qty_refunded_for_item($order_item_id);
+    $qty          = $order_item->get_quantity();
+    $refunded_qty = $order->get_qty_refunded_for_item($order_item_id);
 
-    // if ($refunded_qty) {
-    //     $qty_display = '<del>' . esc_html($qty) . '</del> <ins>' . esc_html($qty - ($refunded_qty * -1)) . '</ins>';
-    // } else {
-    //     $qty_display = esc_html($qty);
-    // }
+    if ($refunded_qty) {
+        $qty_display = '<del>' . esc_html($qty) . '</del> <ins>' . esc_html($qty - ($refunded_qty * -1)) . '</ins>';
+    } else {
+        $qty_display = esc_html($qty);
+    }
 
 
 
@@ -305,15 +308,15 @@ function custom_returns_column($column, $post_id)
     switch ($column) {
 
         case 'order_id':
-           // echo "<a href='" . esc_url($order->get_view_order_url()) . "'>" . $order->get_order_number() . "</a>";
-  echo get_post_meta($post_id, 'order_id', true);
+            echo "<a href='" . esc_url($order->get_view_order_url()) . "'>" . $order->get_order_number() . "</a>";
+
             break;
 
         case 'item_id':
-            echo get_post_meta($post_id, 'item_id', true);
+            echo $product . ' X ' . apply_filters('woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf('%s', $qty_display) . '</strong>', $order_item);
             break;
         case 'total':
-           // echo $order->get_formatted_line_subtotal($order_item);
+            echo $order->get_formatted_line_subtotal($order_item);
             break;
         case 'status':
             echo get_post_meta($post_id, 'status', true);
