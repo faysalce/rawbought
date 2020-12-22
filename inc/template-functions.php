@@ -253,10 +253,10 @@ function ajax_return_request()
     if ($post_id) {
         update_post_meta($post_id, 'pick_date', $pick_date);
         update_post_meta($post_id, 'return_reason', $return_reason);
-        $return['success'] = 1;
+        $return['status'] = 1;
         $return['message'] = 'Return request submited successfully.';
     } else {
-        $return['success'] = 0;
+        $return['status'] = 0;
         $return['message'] = 'Return request not successfully.';
     }
 
