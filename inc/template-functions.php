@@ -265,7 +265,7 @@ function ajax_return_request()
 }
 function get_order_item($order_id){
     $order = wc_get_order($order_id);
-    $order_item           = $order->get_items(apply_filters('woocommerce_purchase_order_item_types', 'line_item'));
+    $order_item           = $order->get_items('line_item');
    return $order_item  ;
 }
 
