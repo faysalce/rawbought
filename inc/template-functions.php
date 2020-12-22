@@ -282,13 +282,13 @@ function set_custom_edit_returns_columns($columns)
 add_action('manage_returns_posts_custom_column', 'custom_returns_column', 10, 2);
 function custom_returns_column($column, $post_id)
 {
-    $order_id = get_post_meta($post_id, 'order_id', true);
-    $order_item_id = get_post_meta($post_id, 'item_id', true);
+     $order_id = get_post_meta($post_id, 'order_id', true);
+     $order_item_id = get_post_meta($post_id, 'item_id', true);
 
     $order = wc_get_order($order_id);
-    $order_item           = $order->get_items(apply_filters('woocommerce_purchase_order_item_types', 'line_item'));
-    $order_item = $order_item[$order_item_id];
-    $product = $order_item->get_name();
+    // $order_item           = $order->get_items(apply_filters('woocommerce_purchase_order_item_types', 'line_item'));
+    // $order_item = $order_item[$order_item_id];
+    // $product = $order_item->get_name();
 
     // $qty          = $order_item->get_quantity();
     // $refunded_qty = $order->get_qty_refunded_for_item($order_item_id);
@@ -310,10 +310,10 @@ function custom_returns_column($column, $post_id)
             break;
 
         case 'item_id':
-            echo $product ;
+           // echo $product ;
             break;
         case 'total':
-            echo $order->get_formatted_line_subtotal($order_item);
+           // echo $order->get_formatted_line_subtotal($order_item);
             break;
         case 'status':
             echo get_post_meta($post_id, 'status', true);
