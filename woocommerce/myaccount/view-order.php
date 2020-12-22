@@ -201,9 +201,19 @@ if($product){
 							?>
 						</td>
 						<td class="text-right">
+							<?php 
+							$return_submit= check_return_order($order_id,$item_id);
+							if($return_submit){?>
+
+<button type="button" order-id="<?php echo $order_id;?>" item-id="<?php echo $item_id; ?>"  class="btn link-return">
+								Return Requested
+							</button>
+							<?php }else{?>
+							
 							<button type="button" order-id="<?php echo $order_id;?>" item-id="<?php echo $item_id; ?>"  class="btn link-return order-return-request">
 								Return
 							</button>
+							<?php } ?>
 						</td>
 					</tr>
 				<?php } }?>

@@ -229,7 +229,21 @@ function ajax_login_checkout()
         wp_send_json(array('status' => 1, 'message' => __('you currectly logined')));;
     }
 }
+function check_return_order($order_id, $item_id)
+{
+    $my_post = array(
+       'meta_key'=>'item_id',
+       'meta_value'=>$item_id,
+        'post_type'  => 'returns',
+        'post_status'   => 'publish',
+    );
+    $post=get_posts($my_post );
+    if(count($post)>0){
+        return true;
 
+    }
+    return false;
+}
 function ajax_return_request()
 {
     $order_id = sanitize_text_field($_POST['order_id']);
