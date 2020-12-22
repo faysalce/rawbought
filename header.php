@@ -206,4 +206,5 @@ wp_nav_menu( array(
 	<?php get_template_part('template-parts/modal-filter'); ?>
 
 	<?php get_template_part('template-parts/modal-size-guide'); ?>
+	<?php get_template_part('template-parts/modal-return'); ?>
 

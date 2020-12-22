@@ -387,5 +387,7 @@ if (wp_is_mobile()) {
         // });
     </script>
 <?php } ?>
-
+<noscript>
+      Your browser doesn't support JavaScript
+    </noscript>
 </html>

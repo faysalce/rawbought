@@ -29,6 +29,7 @@ $show_purchase_note    = $order->has_status(apply_filters('woocommerce_purchase_
 $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_current_user_id();
 $downloads             = $order->get_downloadable_items();
 $show_downloads        = $order->has_downloadable_item() && $order->is_download_permitted();
+// $order_id = trim(str_replace('#', '', $order->get_order_number()));
 
 $customer_id = get_current_user_id();
 
@@ -121,6 +122,8 @@ $get_addresses = apply_filters(
 					<th class="text-center">Quantity</th>
 					<th class="text-center">Price</th>
 					<th class="text-right">Total</th>
+					<th class="text-right">Action</th>
+
 				</tr>
 			</thead>
 			<tbody>
@@ -196,6 +199,11 @@ if($product){
 						<td class="text-right">
 							<?php echo $order->get_formatted_line_subtotal($item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 							?>
+						</td>
+						<td class="text-right">
+							<button type="button" order-id="<?php echo $order_id;?>" item-id="<?php echo $item_id; ?>"  class="btn link-return order-return-request">
+								Return
+							</button>
 						</td>
 					</tr>
 				<?php } }?>
