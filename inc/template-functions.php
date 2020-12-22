@@ -269,6 +269,7 @@ function ajax_return_request()
         update_post_meta($post_id, 'item_id', $order_item_id);
 
         update_post_meta($post_id, 'order_id', $order_id);
+        update_post_meta($post_id, 'status', 'new');
 
         update_post_meta($post_id, 'return_reason', $return_reason);
         $return['status'] = 1;
@@ -1991,6 +1992,30 @@ add_action("admin_init", "rawbought_meta_add");
 function rawbought_meta_add()
 {
     add_meta_box("return_delivery-meta", "Delivery & Return", "return_delivery", "product", "normal", "high");
+    add_meta_box("status-meta", "Status", "status_return", "returns", "normal", "high");
+
+}
+
+function status_return(){
+    global $post;
+    $status = get_post_meta($post->ID, 'status', true);
+    ?>
+
+    <div class='inside'>
+        <p>
+            <select name="status_return" class="form-control">
+                <option value="new" <?php if($status=='new'){echo 'selected="selected"'; } ?>>New</option>
+                <option value="processing" <?php if($status=='processing'){echo 'selected="selected"'; } ?>>Processing</option>
+                <option value="completed" <?php if($status=='completed'){echo 'selected="selected"'; } ?>>Completed</option>
+                <option value="rejected" <?php if($status=='rejected'){echo 'selected="selected"'; } ?>>Rejected</option>
+
+            </select>
+        </p>
+    </div>
+<?php
+
+
+
 }
 
 function return_delivery()
@@ -2022,6 +2047,10 @@ function save_fields_values_for_job_apply()
     if (isset($_POST["product_return_delivery"]) and $_POST["product_return_delivery"] == '') {
         update_post_meta($post->ID, "product_return_delivery", $_POST["product_return_delivery"]);
     }
+    if (isset($_POST["status_return"]) and $_POST["status_return"] == '') {
+        update_post_meta($post->ID, "status", $_POST["status_return"]);
+    }
+    
 }
 
 
