@@ -285,7 +285,7 @@ function custom_returns_column($column, $post_id)
     $order_item_id = get_post_meta($post_id, 'item_id', true);
 
     $order = wc_get_order($order_id);
-    $order_item           = $order->get_items(apply_filters('woocommerce_purchase_order_item_types', 'line_item'));
+    $order_item           = $order->get_items();
     $order_item = $order_item[$order_item_id];
     $product = $order_item->get_name();
 
